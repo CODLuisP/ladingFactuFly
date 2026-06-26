@@ -1,0 +1,6 @@
+{
+  "name": "Factufly",
+  "description": "Landing page moderna y profesional para Factufly, el sistema de facturación electrónica líder en Perú, homologado con SUNAT y conectado con RENIEC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
