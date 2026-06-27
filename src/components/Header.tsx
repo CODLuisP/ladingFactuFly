@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-xl bg-white/70 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-white/10' : 'bg-transparent border-b border-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => handleNavClick('hero')}>
@@ -45,8 +45,8 @@ export default function Header() {
               <span className="text-xl font-bold tracking-tight text-brand-dark dark:text-white flex items-center">
                 Factu<span className="text-[#a80a0a]">Fly</span><span className="text-[#de350b] font-black"></span>
               </span>
-              <span className="block text-[9px] font-bold tracking-widest text-slate-500 dark:text-blue-200/70 uppercase -mt-0.5 flex items-center gap-0.5">
-                <Shield className="w-2 h-2 text-emerald-500" /> SUNAT Perú
+              <span className="block text-[9px] font-bold tracking-widest text-slate-800 dark:text-blue-200/70 uppercase -mt-0.5 flex items-center gap-0.5">
+                 Sistema de facturación electrónica 
               </span>
             </div>
           </div>
