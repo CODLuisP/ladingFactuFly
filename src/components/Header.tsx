@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X, Check, Shield } from 'lucide-react';
+import { Menu, X, Check } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
 import { useNavigation } from '../context/NavigationContext';
 import logoFactufly from '../public/logofactuflyb.png';
@@ -67,13 +68,7 @@ export default function Header() {
           {/* Right Action Controls */}
           <div className="hidden md:flex items-center gap-4">
             {/* Theme Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-xl bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-white/20 transition-colors border border-slate-200/60 dark:border-white/15 cursor-pointer"
-              aria-label="Toggle Dark Mode"
-            >
-              {darkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-brand-blue" />}
-            </button>
+            <ThemeToggle checked={darkMode} onChange={toggleDarkMode} />
 
             <button
               onClick={() => handleNavClick('demo-section')}
@@ -93,13 +88,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center gap-3">
             {/* Theme Toggle for Mobile */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-white/20 transition-colors"
-              aria-label="Toggle Dark Mode"
-            >
-              {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-brand-blue" />}
-            </button>
+            <ThemeToggle checked={darkMode} onChange={toggleDarkMode} />
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

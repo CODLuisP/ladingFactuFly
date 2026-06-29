@@ -7,6 +7,8 @@ import {
 import { InvoiceItem, ClientSearchResult } from '../types';
 import bgFactufly from '../public/ligth.jpg';
 import bgFactuflyDark from '../public/ligth.jpg';
+import videofondo from '../public/videofondo.mp4';
+import videodark from '../public/dark.mp4';
 import desktopImg from '../public/luis.png';
 import { useNavigation } from '../context/NavigationContext';
 
@@ -193,19 +195,29 @@ export default function Hero() {
   const maxChartValue = Math.max(...activeChartData.map(d => d.value));
 
   return (
-    <section id="hero" className="relative -mt-16 min-h-screen flex flex-col justify-center pt-26 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-brand-light dark:bg-slate-950 transition-colors duration-300">
-      {/* Brand background image — light theme */}
-      <div
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none opacity-[0.25] dark:hidden mask-[linear-gradient(to_top,#000_25%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.45)_70%,rgba(0,0,0,0.15)_87%,transparent_100%)]"
-        style={{ backgroundImage: `url(${bgFactufly})` }}
+    <section id="hero" className="relative -mt-16 min-h-screen flex flex-col justify-center pt-26 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-brand-light dark:bg-[#000814] transition-colors duration-300">
+      {/* Video de fondo — light */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-60 dark:hidden"
+        src={videofondo}
+        autoPlay
+        loop
+        muted
+        ref={el => { if (el) el.playbackRate = 0.6; }}
+        playsInline
       />
-      {/* Brand background image — dark theme */}
-      <div
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none hidden dark:block dark:opacity-[0.035] mask-[linear-gradient(to_top,#000_25%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.45)_70%,rgba(0,0,0,0.15)_87%,transparent_100%)]"
-        style={{ backgroundImage: `url(${bgFactuflyDark})` }}
+      {/* Video de fondo — dark */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-40 hidden dark:block"
+        src={videodark}
+        autoPlay
+        loop
+        muted
+        ref={el => { if (el) el.playbackRate = 0.6; }}
+        playsInline
       />
-      {/* Theme tint over the image so it stays soft (light only) */}
-      <div className="absolute inset-0 bg-slate-50/40 dark:bg-transparent pointer-events-none" />
+      {/* Overlay suave sobre el video */}
+      <div className="absolute inset-0 bg-brand-light/60 dark:bg-[#000814]/50 pointer-events-none" />
 
       {/* Decorative Gradients (light only) */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none dark:hidden" />
@@ -225,7 +237,7 @@ export default function Hero() {
             {/* Impactful Headline */}
             <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
               La facturación electrónica en el Perú,{' '}
-              <span className="bg-linear-to-r from-indigo-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent dark:from-indigo-400 dark:via-blue-400 dark:to-teal-400">
+              <span className="text-[#a80a0a] dark:text-[#e05555]">
                 ahora es simple.
               </span>
             </h1>
