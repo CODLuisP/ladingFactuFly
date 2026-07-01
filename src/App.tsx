@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import DocumentTypes from './components/DocumentTypes';
 import Features from './components/Features';
+import Modules from './components/Modules';
 import ApiSection from './components/ApiSection';
+import Industries from './components/Industries';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 
@@ -19,7 +21,9 @@ function AppContent() {
         <Hero />
         <DocumentTypes />
         <Features />
+        <Modules />
         <ApiSection />
+        <Industries />
         <Pricing />
       </main>
       <Footer />

@@ -21,6 +21,7 @@ export default function Header() {
   const navItems = [
     { label: 'Comprobantes', id: 'comprobantes' },
     { label: 'Características', id: 'caracteristicas' },
+    { label: 'Módulos', id: 'modulos' },
     { label: 'API Integración', id: 'api-section' },
     { label: 'Planes y Precios', id: 'planes' },
   ];
