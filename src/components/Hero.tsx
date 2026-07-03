@@ -10,6 +10,7 @@ import bgFactuflyDark from '../public/ligth.jpg';
 import videofondo from '../public/videofondo.mp4';
 import videodark from '../public/dark.mp4';
 import desktopImg from '../public/luis.png';
+import sunatLogo from '../public/sunat.png';
 import { useNavigation } from '../context/NavigationContext';
 
 // Pre-defined clients for RENIEC / SUNAT Simulator
@@ -244,9 +245,8 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-[16px] text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Emite Boletas, Facturas y Guías de Remisión en segundos. Conectado con 
-              <strong className="text-slate-900 dark:text-white font-semibold"> RENIEC</strong> para búsquedas por DNI, y con 
-              <strong className="text-slate-900 dark:text-white font-semibold"> SUNAT</strong> para la validación instantánea de RUC.
+              Emite Boletas, Facturas, Guías de Remisión y otros comprobantes en segundos. Homologado por{' '}
+              <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
             </p>
 
             {/* CTA Buttons */}
@@ -269,7 +269,7 @@ export default function Hero() {
             {/* Trust Badges */}
             <div className="grid grid-cols-3 gap-3 pt-6 max-w-md mx-auto lg:mx-0">
               <div className="text-center lg:text-left px-4 py-3 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10">
-                <span className="block text-2xl font-black text-slate-900 dark:text-white">{'< 1s'}</span>
+                <span className="block text-2xl font-black text-slate-900 dark:text-white">{'< 20s'}</span>
                 <span className="text-xs text-slate-500 dark:text-slate-400">Emisión Instantánea</span>
               </div>
               <div className="text-center lg:text-left px-4 py-3 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10">
