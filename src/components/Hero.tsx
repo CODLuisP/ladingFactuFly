@@ -260,9 +260,7 @@ export default function Hero() {
                 {/* Subtítulo */}
                 <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
                   Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
-                  <span className="inline-flex items-center align-middle mx-0.5 px-1.5 py-0.5 rounded bg-white">
-                    <img src={sunatLogo} alt="SUNAT" className="h-4" />
-                  </span>{' '}
+                  <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                   cero multas garantizado.
                 </p>
 
@@ -353,9 +351,7 @@ export default function Hero() {
               {/* Subtítulo */}
               <p className="text-[15px] text-slate-600 max-w-lg mx-auto leading-relaxed mb-9">
                 Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
-                <span className="inline-flex items-center align-middle mx-0.5 px-1.5 py-0.5 rounded bg-white">
-                  <img src={sunatLogo} alt="SUNAT" className="h-4" />
-                </span>{' '}
+                <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                 cero multas garantizado.
               </p>
 
