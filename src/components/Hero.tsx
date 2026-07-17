@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import {
   FileText, Plus, Trash2, Send, MessageSquare, Check, Sparkles,
   ArrowRight, FileSignature, ShieldAlert, CheckCircle2, TrendingUp, Users, Smartphone, Zap, Globe, FileCheck2,
@@ -10,8 +11,11 @@ import bgFactuflyDark from '../public/ligth.jpg';
 import videofondo from '../public/videofondo.mp4';
 import videodark from '../public/dark.mp4';
 import desktopImg from '../public/luis.png';
+import fondoDark from '../public/fondodark.jpeg';
+import desktopDark from '../public/desktop.png';
 import sunatLogo from '../public/sunat.png';
 import { useNavigation } from '../context/NavigationContext';
+import { useTheme } from '../context/ThemeContext';
 
 // Pre-defined clients for RENIEC / SUNAT Simulator
 const SIMULATED_CLIENTS: ClientSearchResult[] = [
@@ -24,6 +28,18 @@ const SIMULATED_CLIENTS: ClientSearchResult[] = [
 
 export default function Hero() {
   const { scrollToSection } = useNavigation();
+  const { darkMode } = useTheme();
+
+  // ===== Container Scroll Animation (3D tilt → flat) para el dashboard en dark =====
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ['start end', 'center start'],
+  });
+  const rotateX = useTransform(scrollYProgress, [0, 0.4], [28, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.4], [0.9, 1]);
+  // Entra inclinada (40 → 0) y luego se eleva para tapar el texto antes de que el sticky se suelte
+  const translateY = useTransform(scrollYProgress, [0, 0.4, 1], [40, 0, -320]);
   // Playground dashboard states
   const [activeTab, setActiveTab] = useState<'emitir' | 'reportes' | 'sunat_status'>('emitir');
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
@@ -194,6 +210,90 @@ export default function Hero() {
 
   const activeChartData = chartPeriod === 'weekly' ? weeklyData : monthlyData;
   const maxChartValue = Math.max(...activeChartData.map(d => d.value));
+
+  // ===== DARK: Container Scroll Animation (tilt 3D → plano) + tarjeta que sube tapando el texto =====
+  if (darkMode) {
+    return (
+      <section id="hero" className="relative -mt-16 bg-[#05070f]">
+        {/* Pista de scroll: el texto queda fijo mientras el dashboard sube encima */}
+        <div className="relative pb-[100px]">
+          <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center">
+            {/* Fondo */}
+            <img
+              src={fondoDark}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            />
+            {/* Viñeta para fundir el fondo con la sección */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/70 via-transparent to-[#05070f] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#05070f] via-transparent to-[#05070f] pointer-events-none" />
+
+            <div className="relative w-full max-w-4xl mx-auto px-6 -mt-70 text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                100% Homologado y Conectado con SUNAT
+              </div>
+
+              {/* Titular */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                La facturación electrónica en el Perú,{' '}
+                <span className="italic font-serif font-normal text-white/95">ahora es simple.</span>
+              </h1>
+
+              {/* Subtítulo */}
+              <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
+                Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
+                <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
+              </p>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  onClick={() => scrollToSection('planes')}
+                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
+                >
+                  Comienza Gratis
+                </button>
+                <button
+                  onClick={() => scrollToSection('demo-section')}
+                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer"
+                >
+                  Probar Simulador
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Container Scroll Animation: la tarjeta arranca al pie, se aplana y sube tapando el texto */}
+          <div
+            id="demo-section"
+            ref={scrollRef}
+            className="relative z-20 w-full max-w-6xl mx-auto px-6 -mt-[35vh]"
+            style={{ perspective: '1200px' }}
+          >
+            <motion.div
+              style={{
+                rotateX,
+                scale,
+                translateY,
+                transformStyle: 'preserve-3d',
+                boxShadow:
+                  '0 30px 80px -20px rgba(0,0,0,0.7), 0 0 60px -15px rgba(59,130,246,0.35)',
+              }}
+              className="rounded-2xl border border-white/10 bg-[#080b16] p-2 will-change-transform"
+            >
+              <img
+                src={desktopDark}
+                alt="FactuFly Dashboard"
+                className="w-full h-auto rounded-xl"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="hero" className="relative -mt-16 min-h-screen flex flex-col justify-center pt-26 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-brand-light dark:bg-[#000814] transition-colors duration-300">
