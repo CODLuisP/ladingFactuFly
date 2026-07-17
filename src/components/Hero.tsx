@@ -12,7 +12,9 @@ import videofondo from '../public/videofondo.mp4';
 import videodark from '../public/dark.mp4';
 import desktopImg from '../public/luis.png';
 import fondoDark from '../public/fondodark.jpeg';
-import desktopDark from '../public/desktop.png';
+import fondoLight from '../public/fondoligth.jpeg';
+import desktopDark from '../public/desktopdark.png';
+import desktopLight from '../public/desktopligth.png';
 import sunatLogo from '../public/sunat.png';
 import { useNavigation } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
@@ -38,6 +40,15 @@ export default function Hero() {
     target: scrollRef,
     offset: ['start start', 'end end'],
   });
+  // Precarga las dos imágenes del dashboard para que el cambio de modo sea instantáneo
+  // (cada PNG pesa ~6.5 MB y, si no, recién se descarga al togglear).
+  useEffect(() => {
+    [desktopDark, desktopLight, fondoDark, fondoLight].forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   const rotateX = useTransform(scrollYProgress, [0, 0.4], [26, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.4], [0.92, 1]);
   // Peek abajo → se aplana → sube hasta CENTRARSE tapando el texto (en 0.85 y se mantiene).
@@ -305,102 +316,90 @@ export default function Hero() {
     );
   }
 
+  // ===== LIGHT: mismo layout/animación que el dark, con fondo claro (fondoligth) =====
   return (
-    <section id="hero" className="relative -mt-16 min-h-screen flex flex-col justify-center pt-26 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-brand-light dark:bg-[#000814] transition-colors duration-300">
-      {/* Video de fondo — light */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-60 dark:hidden"
-        src={videofondo}
-        autoPlay
-        loop
-        muted
-        ref={el => { if (el) el.playbackRate = 0.6; }}
-        playsInline
-      />
-      {/* Video de fondo — dark */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-40 hidden dark:block"
-        src={videodark}
-        autoPlay
-        loop
-        muted
-        ref={el => { if (el) el.playbackRate = 0.6; }}
-        playsInline
-      />
-      {/* Overlay suave sobre el video */}
-      <div className="absolute inset-0 bg-brand-light/60 dark:bg-[#000814]/50 pointer-events-none" />
+    <section id="hero" className="relative -mt-16 bg-[#eef3fc]">
+      {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
+      <div ref={scrollRef} className="relative h-[135vh]">
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {/* Fondo */}
+          <img
+            src={fondoLight}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          />
+          {/* Viñeta para fundir el fondo con la sección */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
 
-      {/* Decorative Gradients (light only) */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none dark:hidden" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-3xl pointer-events-none dark:hidden" />
-
-      <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Hero Context Left */}
-          <div className="lg:col-span-5 text-center lg:text-left">
-            {/* SUNAT Badge */}
-            <div className="inline-flex items-center gap-1.5 py-1.5 rounded-full text-xs font-semibold   text-emerald-700 dark:text-emerald-400   mb-6">
-             
-              100% Homologado y Conectado con SUNAT
-            </div>
-
-            {/* Impactful Headline */}
-            <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
-              La facturación electrónica en el Perú,{' '}
-              <span className="text-[#a80a0a] dark:text-[#e05555]">
-                ahora es simple.
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-[16px] text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Emite Boletas, Facturas, Guías de Remisión y otros comprobantes en segundos. Homologado por{' '}
-              <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
-              <button
-                onClick={() => scrollToSection('planes')}
-                className="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-indigo-600 hover:bg-indigo-750 rounded-2xl shadow-xl shadow-indigo-600/15 hover:shadow-indigo-600/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer border border-indigo-600/10"
-              >
-                Comienza Gratis <ArrowRight className="w-5 h-5" />
-              </button>
-              
-              <button
-                onClick={() => scrollToSection('demo-section')}
-                className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/80 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                Probar Simulador
-              </button>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-3 pt-6 max-w-md mx-auto lg:mx-0">
-              <div className="text-center lg:text-left px-4 py-3 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10">
-                <span className="block text-2xl font-black text-slate-900 dark:text-white">{'< 20s'}</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">Emisión Instantánea</span>
+          {/* Texto (fijo, centrado) */}
+          <div className="relative z-10 h-full flex flex-col items-center justify-center">
+            <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-slate-700 border border-slate-300/70 bg-white/70 backdrop-blur-sm">
+                <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+                100% Homologado y Conectado con SUNAT
               </div>
-              <div className="text-center lg:text-left px-4 py-3 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10">
-                <span className="block text-2xl font-black text-slate-900 dark:text-white">RENIEC</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">DNI/RUC Automatizado</span>
-              </div>
-              <div className="text-center lg:text-left px-4 py-3 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10">
-                <span className="block text-2xl font-black text-slate-900 dark:text-white">OSE/PSE</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">Certificado Incluido</span>
+
+              {/* Titular */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
+                La facturación electrónica en el Perú,{' '}
+                <span className="italic font-serif font-normal text-slate-900/90">ahora es simple.</span>
+              </h1>
+
+              {/* Subtítulo */}
+              <p className="text-[15px] text-slate-600 max-w-lg mx-auto leading-relaxed mb-9">
+                Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
+                <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
+              </p>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  onClick={() => scrollToSection('planes')}
+                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-600/25 transition-all cursor-pointer border border-blue-700/20"
+                >
+                  Comienza Gratis
+                </button>
+                <button
+                  onClick={() => scrollToSection('demo-section')}
+                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200"
+                >
+                  Probar Simulador
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Desktop Screenshot Right */}
-          <div id="demo-section" className="lg:col-span-7 w-full  px-10">
-            <div className="relative rounded-3xl  overflow-hidden">
-              {/* Desktop Screenshot */}
-              <img src={desktopImg} alt="FactuFly Dashboard" className="w-full h-auto object-cover" />
-            </div>
+          {/* Dashboard: absoluto dentro del escenario. Arranca abajo (peek), se aplana y
+              sube tapando el texto. Al no estar en el flujo, no deja hueco al terminar. */}
+          <div
+            id="demo-section"
+            className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6 pointer-events-none"
+            style={{ perspective: '1200px' }}
+          >
+            <motion.div
+              style={{
+                rotateX,
+                scale,
+                y: imageY,
+                transformStyle: 'preserve-3d',
+              }}
+              className="will-change-transform"
+            >
+              {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
+                  así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
+              <img
+                src={desktopLight}
+                alt="FactuFly Dashboard"
+                className="w-full h-auto"
+                style={{
+                  filter:
+                    'drop-shadow(0 24px 34px rgba(37,99,235,0.22)) drop-shadow(0 0 30px rgba(59,130,246,0.20))',
+                }}
+              />
+            </motion.div>
           </div>
-
         </div>
       </div>
     </section>
