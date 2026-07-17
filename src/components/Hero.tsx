@@ -40,8 +40,9 @@ export default function Hero() {
   });
   const rotateX = useTransform(scrollYProgress, [0, 0.4], [26, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.4], [0.92, 1]);
-  // Peek abajo → se aplana → sube tapando el texto (cobertura total en 0.85 y se mantiene)
-  const imageY = useTransform(scrollYProgress, [0, 0.4, 0.85], ['58vh', '46vh', '0vh']);
+  // Peek abajo → se aplana → sube hasta CENTRARSE tapando el texto (en 0.85 y se mantiene).
+  // El valor final (16vh) deja el mismo espacio arriba y abajo, en vez de fondo muerto abajo.
+  const imageY = useTransform(scrollYProgress, [0, 0.4, 0.85], ['58vh', '46vh', '16vh']);
   // Playground dashboard states
   const [activeTab, setActiveTab] = useState<'emitir' | 'reportes' | 'sunat_status'>('emitir');
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
@@ -218,7 +219,7 @@ export default function Hero() {
     return (
       <section id="hero" className="relative -mt-16 bg-[#05070f]">
         {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
-        <div ref={scrollRef} className="relative h-[180vh]">
+        <div ref={scrollRef} className="relative h-[135vh]">
           <div className="sticky top-0 h-screen overflow-hidden">
             {/* Fondo */}
             <img
@@ -232,7 +233,7 @@ export default function Hero() {
 
             {/* Texto (fijo, centrado) */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center">
-              <div className="w-full max-w-4xl mx-auto px-6 -mt-40 text-center">
+              <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
                   <Sparkles className="w-3.5 h-3.5 text-blue-400" />
@@ -273,7 +274,7 @@ export default function Hero() {
                 sube tapando el texto. Al no estar en el flujo, no deja hueco al terminar. */}
             <div
               id="demo-section"
-              className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6"
+              className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6 pointer-events-none"
               style={{ perspective: '1200px' }}
             >
               <motion.div
