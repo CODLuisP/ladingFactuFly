@@ -246,10 +246,10 @@ export default function Hero() {
             <div className="relative z-10 h-full flex flex-col items-center justify-center">
               <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
                   <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                   100% Homologado y Conectado con SUNAT
-                </div>
+                </div> */}
 
                 {/* Titular */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
@@ -260,7 +260,10 @@ export default function Hero() {
                 {/* Subtítulo */}
                 <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
                   Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
-                  <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
+                  <span className="inline-flex items-center align-middle mx-0.5 px-1.5 py-0.5 rounded bg-white">
+                    <img src={sunatLogo} alt="SUNAT" className="h-4" />
+                  </span>{' '}
+                  cero multas garantizado.
                 </p>
 
                 {/* CTA */}
@@ -336,10 +339,10 @@ export default function Hero() {
           <div className="relative z-10 h-full flex flex-col items-center justify-center">
             <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-slate-700 border border-slate-300/70 bg-white/70 backdrop-blur-sm">
+              {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-slate-700 border border-slate-300/70 bg-white/70 backdrop-blur-sm">
                 <Sparkles className="w-3.5 h-3.5 text-blue-500" />
                 100% Homologado y Conectado con SUNAT
-              </div>
+              </div> */}
 
               {/* Titular */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
@@ -350,7 +353,10 @@ export default function Hero() {
               {/* Subtítulo */}
               <p className="text-[15px] text-slate-600 max-w-lg mx-auto leading-relaxed mb-9">
                 Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
-                <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
+                <span className="inline-flex items-center align-middle mx-0.5 px-1.5 py-0.5 rounded bg-white">
+                  <img src={sunatLogo} alt="SUNAT" className="h-4" />
+                </span>{' '}
+                cero multas garantizado.
               </p>
 
               {/* CTA */}
