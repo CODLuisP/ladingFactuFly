@@ -30,16 +30,18 @@ export default function Hero() {
   const { scrollToSection } = useNavigation();
   const { darkMode } = useTheme();
 
-  // ===== Container Scroll Animation (3D tilt → flat) para el dashboard en dark =====
+  // ===== Container Scroll Animation (3D tilt → plano) para el dashboard en dark =====
+  // La imagen va absoluta dentro del escenario sticky; el progreso se mide sobre
+  // la pista de scroll (start→end del pineado). Al no estar en el flujo, no deja hueco.
   const scrollRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ['start end', 'center start'],
+    offset: ['start start', 'end end'],
   });
-  const rotateX = useTransform(scrollYProgress, [0, 0.4], [28, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.4], [0.9, 1]);
-  // Entra inclinada (40 → 0) y luego se eleva para tapar el texto antes de que el sticky se suelte
-  const translateY = useTransform(scrollYProgress, [0, 0.4, 1], [40, 0, -320]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.4], [26, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.4], [0.92, 1]);
+  // Peek abajo → se aplana → sube tapando el texto (cobertura total en 0.85 y se mantiene)
+  const imageY = useTransform(scrollYProgress, [0, 0.4, 0.85], ['58vh', '46vh', '0vh']);
   // Playground dashboard states
   const [activeTab, setActiveTab] = useState<'emitir' | 'reportes' | 'sunat_status'>('emitir');
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
@@ -215,9 +217,9 @@ export default function Hero() {
   if (darkMode) {
     return (
       <section id="hero" className="relative -mt-16 bg-[#05070f]">
-        {/* Pista de scroll: el texto queda fijo mientras el dashboard sube encima */}
-        <div className="relative pb-[100px]">
-          <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center">
+        {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
+        <div ref={scrollRef} className="relative h-[180vh]">
+          <div className="sticky top-0 h-screen overflow-hidden">
             {/* Fondo */}
             <img
               src={fondoDark}
@@ -228,67 +230,70 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/70 via-transparent to-[#05070f] pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#05070f] via-transparent to-[#05070f] pointer-events-none" />
 
-            <div className="relative w-full max-w-4xl mx-auto px-6 -mt-70 text-center">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
-                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                100% Homologado y Conectado con SUNAT
-              </div>
+            {/* Texto (fijo, centrado) */}
+            <div className="relative z-10 h-full flex flex-col items-center justify-center">
+              <div className="w-full max-w-4xl mx-auto px-6 -mt-40 text-center">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                  100% Homologado y Conectado con SUNAT
+                </div>
 
-              {/* Titular */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-                La facturación electrónica en el Perú,{' '}
-                <span className="italic font-serif font-normal text-white/95">ahora es simple.</span>
-              </h1>
+                {/* Titular */}
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                  La facturación electrónica en el Perú,{' '}
+                  <span className="italic font-serif font-normal text-white/95">ahora es simple.</span>
+                </h1>
 
-              {/* Subtítulo */}
-              <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
-                Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
-                <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
-              </p>
+                {/* Subtítulo */}
+                <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
+                  Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
+                  <img src={sunatLogo} alt="SUNAT" className="inline h-4 align-middle mx-0.5" /> cero multas garantizado.
+                </p>
 
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <button
-                  onClick={() => scrollToSection('planes')}
-                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
-                >
-                  Comienza Gratis
-                </button>
-                <button
-                  onClick={() => scrollToSection('demo-section')}
-                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer"
-                >
-                  Probar Simulador
-                </button>
+                {/* CTA */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <button
+                    onClick={() => scrollToSection('planes')}
+                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
+                  >
+                    Comienza Gratis
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('demo-section')}
+                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer"
+                  >
+                    Probar Simulador
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Container Scroll Animation: la tarjeta arranca al pie, se aplana y sube tapando el texto */}
-          <div
-            id="demo-section"
-            ref={scrollRef}
-            className="relative z-20 w-full max-w-6xl mx-auto px-6 -mt-[35vh]"
-            style={{ perspective: '1200px' }}
-          >
-            <motion.div
-              style={{
-                rotateX,
-                scale,
-                translateY,
-                transformStyle: 'preserve-3d',
-                boxShadow:
-                  '0 30px 80px -20px rgba(0,0,0,0.7), 0 0 60px -15px rgba(59,130,246,0.35)',
-              }}
-              className="rounded-2xl border border-white/10 bg-[#080b16] p-2 will-change-transform"
+            {/* Dashboard: absoluto dentro del escenario. Arranca abajo (peek), se aplana y
+                sube tapando el texto. Al no estar en el flujo, no deja hueco al terminar. */}
+            <div
+              id="demo-section"
+              className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6"
+              style={{ perspective: '1200px' }}
             >
-              <img
-                src={desktopDark}
-                alt="FactuFly Dashboard"
-                className="w-full h-auto rounded-xl"
-              />
-            </motion.div>
+              <motion.div
+                style={{
+                  rotateX,
+                  scale,
+                  y: imageY,
+                  transformStyle: 'preserve-3d',
+                  boxShadow:
+                    '0 30px 80px -20px rgba(0,0,0,0.7), 0 0 60px -15px rgba(59,130,246,0.35)',
+                }}
+                className="rounded-2xl border border-white/10 bg-[#080b16] p-2 will-change-transform"
+              >
+                <img
+                  src={desktopDark}
+                  alt="FactuFly Dashboard"
+                  className="w-full h-auto rounded-xl"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
