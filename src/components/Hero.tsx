@@ -283,15 +283,19 @@ export default function Hero() {
                   scale,
                   y: imageY,
                   transformStyle: 'preserve-3d',
-                  boxShadow:
-                    '0 30px 80px -20px rgba(0,0,0,0.7), 0 0 60px -15px rgba(59,130,246,0.35)',
                 }}
-                className="rounded-2xl border border-white/10 bg-[#080b16] p-2 will-change-transform"
+                className="will-change-transform"
               >
+                {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
+                    así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
                 <img
                   src={desktopDark}
                   alt="FactuFly Dashboard"
-                  className="w-full h-auto rounded-xl"
+                  className="w-full h-auto"
+                  style={{
+                    filter:
+                      'drop-shadow(0 24px 34px rgba(0,0,0,0.65)) drop-shadow(0 0 34px rgba(59,130,246,0.28))',
+                  }}
                 />
               </motion.div>
             </div>
