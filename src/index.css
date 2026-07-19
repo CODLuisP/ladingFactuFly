@@ -25,6 +25,12 @@
   --color-indigo-800: #081c40;
   --color-indigo-900: #06142e;
   --color-indigo-950: #030a18;
+
+  /* Dark-mode surface tones. Adjacent sections alternate between these two
+     to create visual separation without a hard border (see Hero, Sponsors,
+     DocumentTypes, Features, Modules, ApiSection, Industries, Pricing). */
+  --color-surface-dark-1: #05070f;
+  --color-surface-dark-2: #0d1526;
 }
 
 @variant dark (&:where(.dark, .dark *));

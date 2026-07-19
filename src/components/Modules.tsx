@@ -1,8 +1,9 @@
 import React from 'react';
 import {
   Boxes, ShoppingCart, Package, Truck, Users, BarChart3, Settings2, Building2,
-  Printer, ArrowLeftRight, Percent, IdCard, AlertTriangle, Barcode, Wallet, Send
+  Barcode, Wallet, Camera, ScanLine, PackageCheck, BellRing, ArrowRight
 } from 'lucide-react';
+import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
 
 interface ModuleItem {
   icon: React.ElementType;
@@ -71,18 +72,26 @@ const MODULES: ModuleItem[] = [
   },
 ];
 
-const DIFFERENTIATORS = [
-  { icon: Printer, title: 'Ticketera 58mm y 80mm', desc: 'Impresión automática según la configuración de tu impresora.' },
-  { icon: ArrowLeftRight, title: 'Tipo de cambio S/ → $', desc: 'Conectado al tipo de cambio para emitir también en dólares.' },
-  { icon: Percent, title: 'IGV 18% o 10.5%', desc: 'Se ajusta automáticamente al régimen de tu negocio.' },
-  { icon: IdCard, title: 'DNI, RUC y CE', desc: 'Búsqueda automática de clientes nacionales y extranjeros.' },
-  { icon: Send, title: 'Email y WhatsApp', desc: 'Envío automático del comprobante apenas se emite.' },
-  { icon: Barcode, title: 'Código de barras', desc: 'Vende escaneando y mantén tu inventario siempre al día.' },
+// GUARDADO: bloque original "Detalles que marcan la diferencia" (reemplazado por el flujo de código de barras y stock).
+// import { Printer, ArrowLeftRight, Percent, IdCard, Send } from 'lucide-react';
+// const DIFFERENTIATORS = [
+//   { icon: Printer, title: 'Ticketera 58mm y 80mm', desc: 'Impresión automática según la configuración de tu impresora.' },
+//   { icon: ArrowLeftRight, title: 'Tipo de cambio S/ → $', desc: 'Conectado al tipo de cambio para emitir también en dólares.' },
+//   { icon: Percent, title: 'IGV 18% o 10.5%', desc: 'Se ajusta automáticamente al régimen de tu negocio.' },
+//   { icon: IdCard, title: 'DNI, RUC y CE', desc: 'Búsqueda automática de clientes nacionales y extranjeros.' },
+//   { icon: Send, title: 'Email y WhatsApp', desc: 'Envío automático del comprobante apenas se emite.' },
+//   { icon: Barcode, title: 'Código de barras', desc: 'Vende escaneando y mantén tu inventario siempre al día.' },
+// ];
+
+const BARCODE_STEPS = [
+  { icon: Camera, title: 'Registra tu producto', desc: 'Súbele una foto y genera su código de barras al instante.' },
+  { icon: ScanLine, title: 'Escanea y vende', desc: 'Cobra en segundos leyendo el código desde el POS.' },
+  { icon: PackageCheck, title: 'Stock en tiempo real', desc: 'Cada venta descuenta el inventario automáticamente.' },
 ];
 
 export default function Modules() {
   return (
-    <section id="modulos" className="py-20 bg-brand-light dark:bg-slate-950 transition-colors duration-300">
+    <section id="modulos" className="py-20 bg-brand-light dark:bg-surface-dark-1 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -91,11 +100,12 @@ export default function Modules() {
             <Wallet className="w-4.5 h-4.5" /> Sistema Todo en Uno
           </h2>
           <p className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-2">
-            Un solo sistema para administrar todo tu negocio
+            ¿Factufly es solo un sistema de facturación electrónica?
           </p>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
-            Factufly no es solo facturación: es un punto de venta completo que integra inventario, compras,
-            clientes, reportes y caja. Olvídate de pagar por varios programas separados.
+            No. Factufly es mucho más: es un <span className="font-semibold text-slate-900 dark:text-white">punto de venta completo</span> que,
+            además de la facturación electrónica, integra inventario, compras, clientes, reportes y caja
+            en los módulos que verás a continuación. Olvídate de pagar por varios programas separados.
           </p>
         </div>
 
@@ -126,29 +136,91 @@ export default function Modules() {
           })}
         </div>
 
-        {/* Differentiators strip */}
-        <div className="mt-14">
-          <p className="text-center text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">
-            Detalles que marcan la diferencia
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {DIFFERENTIATORS.map((d) => {
-              const Icon = d.icon;
+        {/* Barcode & smart stock */}
+        <div className="mt-20">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h3 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
+              <Barcode className="w-4.5 h-4.5" /> Código de barras y stock inteligente
+            </h3>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-2">
+              Escanea, vende y nunca te quedes sin stock
+            </p>
+          </div>
+
+          {/* Flow steps */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-3 items-stretch">
+            {BARCODE_STEPS.map((step, i) => {
+              const Icon = step.icon;
               return (
-                <div
-                  key={d.title}
-                  className="flex items-start gap-4 bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/50 dark:border-slate-800/50"
-                >
-                  <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 shrink-0">
-                    <Icon className="w-5 h-5" />
+                <React.Fragment key={step.title}>
+                  <div className="relative flex flex-col items-center text-center bg-white dark:bg-slate-900 rounded-3xl p-7 border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                    <span className="absolute top-4 right-5 text-4xl font-black text-slate-100 dark:text-slate-800 leading-none select-none">
+                      {i + 1}
+                    </span>
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center mb-4 shadow-md">
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white">{step.title}</h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">{step.desc}</p>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-slate-900 dark:text-white">{d.title}</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{d.desc}</p>
-                  </div>
-                </div>
+                  {i < BARCODE_STEPS.length - 1 && (
+                    <div className="hidden md:flex items-center justify-center -mx-1 shrink-0">
+                      <ArrowRight className="w-6 h-6 text-slate-300 dark:text-slate-700" />
+                    </div>
+                  )}
+                </React.Fragment>
               );
             })}
+          </div>
+
+          {/* WhatsApp stock alerts highlight */}
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center bg-gradient-to-br from-indigo-600 to-blue-700 rounded-3xl p-8 sm:p-10 shadow-lg overflow-hidden">
+            <div className="text-white">
+              <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 text-xs font-semibold mb-4">
+                <BellRing className="w-4 h-4" /> Alertas por WhatsApp
+              </div>
+              <h4 className="text-2xl font-bold tracking-tight">
+                Configura un stock mínimo y entérate por WhatsApp
+              </h4>
+              <p className="text-indigo-100 mt-3 text-sm leading-relaxed">
+                Cuando un producto llega a su stock mínimo, Factufly te avisa por WhatsApp para que
+                repongas a tiempo. Y en cuanto vuelves a cargar stock, recibes otra alerta de que el
+                producto ya está disponible.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-5">
+                <span className="inline-flex items-center gap-2 text-sm text-white font-medium">
+                  <BellRing className="w-5 h-5" /> Aviso de stock mínimo
+                </span>
+                <span className="inline-flex items-center gap-2 text-sm text-white font-medium">
+                  <PackageCheck className="w-5 h-5" /> Aviso de stock disponible
+                </span>
+              </div>
+            </div>
+
+            {/* Mock WhatsApp notifications */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-4">
+                <div className="flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <img src={whatsappIcon} alt="" className="w-6 h-6" />
+                  <span className="font-bold text-sm text-slate-900 dark:text-white">Factufly</span>
+                  <span className="ml-auto text-[11px] text-slate-400">ahora</span>
+                </div>
+                <div className="mt-3 space-y-2.5">
+                  <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl rounded-tl-sm p-3">
+                    <p className="text-[13px] text-slate-800 dark:text-slate-200 leading-relaxed">
+                      ⚠️ <span className="font-semibold">Stock mínimo alcanzado</span><br />
+                      Coca Cola 500ml — quedan <span className="font-semibold">3 unidades</span> (mínimo: 10).
+                    </p>
+                  </div>
+                  <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl rounded-tl-sm p-3">
+                    <p className="text-[13px] text-slate-800 dark:text-slate-200 leading-relaxed">
+                      ✅ <span className="font-semibold">Stock disponible</span><br />
+                      Coca Cola 500ml — repuesto, ahora <span className="font-semibold">48 unidades</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

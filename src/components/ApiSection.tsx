@@ -130,7 +130,7 @@ export default function ApiSection() {
   };
 
   return (
-    <section id="api-section" className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <section id="api-section" className="py-20 bg-white dark:bg-surface-dark-2 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -256,7 +256,7 @@ export default function ApiSection() {
                     <div className="space-y-1 text-slate-400">
                       <p className="text-yellow-400">{'['}POST{']'} Connecting to https://api.factufly.pe/v1/invoices...</p>
                       <p className="animate-pulse">{'['}PENDING{']'} Sending secure JSON payload, verifying token auth...</p>
-                      <p className="animate-pulse">{'['}PENDING{']'} SUNAT Handshake & OSE certification signature ceremony...</p>
+                      <p className="animate-pulse">{'['}PENDING{']'} SUNAT Handshake & certification signature ceremony...</p>
                     </div>
                   )}
 

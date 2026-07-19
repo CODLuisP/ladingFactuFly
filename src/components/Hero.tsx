@@ -80,7 +80,7 @@ export default function Hero() {
   // Invoice items
   const [items, setItems] = useState<InvoiceItem[]>([
     { id: '1', description: 'Licencia Factufly ERP - Suscripción Anual', quantity: 1, unitPrice: 450 },
-    { id: '2', description: 'Consultoría e Implementación SUNAT / OSE', quantity: 1, unitPrice: 150 },
+    { id: '2', description: 'Consultoría e Implementación SUNAT', quantity: 1, unitPrice: 150 },
   ]);
 
   // Invoice emission wizard state
@@ -181,7 +181,7 @@ export default function Hero() {
 
     setEmissionStep('signing');
     
-    // Simulate SUNAT/OSE Web-Service Handshake
+    // Simulate SUNAT Web-Service Handshake
     setTimeout(() => {
       setEmissionStep('sending');
       setTimeout(() => {
@@ -228,7 +228,7 @@ export default function Hero() {
   // ===== DARK: Container Scroll Animation (tilt 3D → plano) + tarjeta que sube tapando el texto =====
   if (darkMode) {
     return (
-      <section id="hero" className="relative -mt-16 bg-[#05070f]">
+      <section id="hero" className="relative -mt-16 bg-surface-dark-1">
         {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
         <div ref={scrollRef} className="relative h-[135vh]">
           <div className="sticky top-0 h-screen overflow-hidden">
@@ -239,8 +239,8 @@ export default function Hero() {
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
             {/* Viñeta para fundir el fondo con la sección */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/70 via-transparent to-[#05070f] pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#05070f] via-transparent to-[#05070f] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
 
             {/* Texto (fijo, centrado) */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center">
@@ -253,16 +253,15 @@ export default function Hero() {
 
                 {/* Titular */}
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-                  La facturación electrónica en el Perú,{' '}
-                  <span className="italic font-serif font-normal text-white/95">ahora es simple.</span>
+                  Tu punto de venta y facturación electrónica,{' '}
+                  <span className="italic font-serif font-normal text-white/95">ahora en un solo sistema.</span>
                 </h1>
 
                 {/* Subtítulo */}
-                <p className="text-[15px] text-white/60 max-w-lg mx-auto leading-relaxed mb-9">
-                  Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
+                <p className="text-[15px] text-white/60 max-w-xl mx-auto leading-relaxed mb-8">
+                  Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
                   <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
-                  <span className="font-extrabold text-white">SUNAT</span>{' '}
-                  cero multas garantizado.
+                  <span className="font-extrabold text-white">SUNAT</span>, cero multas.
                 </p>
 
                 {/* CTA */}
@@ -345,16 +344,15 @@ export default function Hero() {
 
               {/* Titular */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
-                La facturación electrónica en el Perú,{' '}
-                <span className="italic font-serif font-normal text-slate-900/90">ahora es simple.</span>
+                Tu punto de venta y facturación electrónica,{' '}
+                <span className="italic font-serif font-normal text-slate-900/90">ahora en un solo sistema.</span>
               </h1>
 
               {/* Subtítulo */}
-              <p className="text-[15px] text-slate-600 max-w-lg mx-auto leading-relaxed mb-9">
-                Emite Boletas, Facturas y Guías de Remisión en segundos. Homologado por{' '}
+              <p className="text-[15px] text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
+                Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
                 <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
-                <span className="font-extrabold text-blue-900">SUNAT</span>{' '}
-                cero multas garantizado.
+                <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
               </p>
 
               {/* CTA */}

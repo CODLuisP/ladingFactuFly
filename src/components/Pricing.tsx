@@ -64,7 +64,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="planes" className="py-20 bg-brand-light dark:bg-slate-950 transition-colors duration-300 relative">
+    <section id="planes" className="py-20 bg-brand-light dark:bg-surface-dark-2 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

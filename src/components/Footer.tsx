@@ -187,7 +187,7 @@ export default function Footer() {
             <ShieldCheck className="w-7 h-7 text-emerald-500 shrink-0" />
             <div>
               <span className="block text-[8px] font-black tracking-widest text-slate-500 uppercase">PROVEEDOR AUTORIZADO</span>
-              <span className="block text-[10px] font-bold text-brand-dark dark:text-white uppercase -mt-0.5">PSE / OSE SUNAT PERÚ</span>
+              <span className="block text-[10px] font-bold text-brand-dark dark:text-white uppercase -mt-0.5">PSE SUNAT PERÚ</span>
             </div>
           </div>
         </div>

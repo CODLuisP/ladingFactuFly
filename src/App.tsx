@@ -3,9 +3,11 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { NavigationProvider } from './context/NavigationContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Sponsors from './components/Sponsors';
 import DocumentTypes from './components/DocumentTypes';
 import Features from './components/Features';
 import Modules from './components/Modules';
+import Personalization from './components/Personalization';
 import ApiSection from './components/ApiSection';
 import Industries from './components/Industries';
 import Pricing from './components/Pricing';
@@ -19,9 +21,11 @@ function AppContent() {
       <Header />
       <main className="relative z-10">
         <Hero />
+        <Sponsors />
         <DocumentTypes />
         <Features />
         <Modules />
+        <Personalization />
         <ApiSection />
         <Industries />
         <Pricing />
