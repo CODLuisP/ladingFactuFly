@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle, Check, Send, ShieldCheck, Heart, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Send, ShieldCheck, Heart, ExternalLink } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
+import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
 
 export default function Footer() {
   const { scrollToSection } = useNavigation();
@@ -8,158 +9,176 @@ export default function Footer() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [ruc, setRuc] = useState('');
+  const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    
+
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
       setName('');
       setEmail('');
       setPhone('');
-      setRuc('');
+      setMessage('');
     }, 1000);
   };
 
   return (
     <footer id="footer" className="bg-white text-slate-600 dark:bg-slate-900 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
 
-      {/* Upper Section: Dynamic Contact & Consultation Lead Form */}
+      {/* Upper Section: Contacto (formulario + datos + mapa) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-slate-200 dark:border-slate-800">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
-          {/* Pitch Left Column */}
-          <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
-            <span className="inline-block bg-blue-50 border border-blue-200 text-blue-700 dark:bg-blue-950 dark:border-blue-800 dark:text-blue-400 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
-              Asesoría SUNAT Gratuita
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-brand-dark dark:text-white tracking-tight leading-none">
-              ¿Listo para dar el gran salto tecnológico?
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-              Déjanos tus datos y un especialista tributario se pondrá en contacto contigo en menos de 15 minutos para resolver todas tus dudas sobre homologación, certificado digital y emisión electrónica sin costo alguno.
-            </p>
+          {/* Formulario (izquierda) */}
+          <div className="bg-slate-50 dark:bg-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+            {submitted ? (
+              <div className="text-center py-10 space-y-4 animate-in zoom-in-95 duration-200">
+                <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/20">
+                  <CheckCircle className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-brand-dark dark:text-white">¡Mensaje enviado con éxito!</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto">
+                    Gracias por escribirnos. Un asesor de Factufly se comunicará contigo al teléfono o correo brindado en menos de 15 minutos.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="px-4 py-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-brand-dark dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl transition-all cursor-pointer"
+                >
+                  Enviar otro mensaje
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleContactSubmit} className="space-y-4">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Contáctanos</span>
+                  <h2 className="text-3xl sm:text-4xl font-black text-brand-dark dark:text-white tracking-tight mt-1">
+                    Ponte en contacto
+                  </h2>
+                </div>
 
-            {/* Static contact items */}
-            <div className="space-y-4 pt-4 text-xs font-medium max-w-sm mx-auto lg:mx-0">
-              <div className="flex items-center gap-3 justify-center lg:justify-start">
-                <Phone className="w-4 h-4 text-red-500" />
-                <span className="text-slate-700 dark:text-slate-300">Llámanos: (01) 640-9821 | Lun - Sáb 8am - 8pm</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center lg:justify-start">
-                <Mail className="w-4 h-4 text-blue-500" />
-                <span className="text-slate-700 dark:text-slate-300">Correo: ventas@factufly.pe</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center lg:justify-start">
-                <MapPin className="w-4 h-4 text-slate-400" />
-                <span className="text-slate-700 dark:text-slate-300">Oficina Principal: Av. Larco 450, Miraflores, Lima</span>
-              </div>
-            </div>
+                <div className="space-y-1">
+                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Nombre</label>
+                  <input
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Tu nombre..."
+                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Correo</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="ejemplo@correo.com"
+                      className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Celular / WhatsApp</label>
+                    <input
+                      type="text"
+                      required
+                      maxLength={9}
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
+                      placeholder="987654321"
+                      className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Mensaje</label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Cuéntanos qué necesitas..."
+                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full py-3.5 px-4 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 cursor-pointer"
+                >
+                  {submitting ? <>Enviando...</> : <><Send className="w-4 h-4" /> Enviar mensaje</>}
+                </button>
+
+                <p className="text-[10px] text-slate-500 text-center leading-relaxed">
+                  Al enviar, aceptas que Factufly procese tus datos con fines comerciales conforme a la Ley N° 29733 (Protección de Datos Personales).
+                </p>
+              </form>
+            )}
           </div>
 
-          {/* Contact Interactive Form Right Column */}
-          <div className="lg:col-span-7">
-            <div className="bg-slate-50 dark:bg-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl relative overflow-hidden">
-              {submitted ? (
-                <div className="text-center py-8 space-y-4 animate-in zoom-in-95 duration-200">
-                  <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/20">
-                    <CheckCircle className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-brand-dark dark:text-white">¡Solicitud Registrada con Éxito!</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto">
-                      Muchas gracias. Un consultor comercial de Factufly se comunicará contigo al teléfono o correo brindado en menos de 15 minutos para agendar tu demostración y resolver tus dudas tributarias.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-4 py-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-brand-dark dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl transition-all cursor-pointer"
-                  >
-                    Enviar otro mensaje
-                  </button>
+          {/* Info de contacto + mapa (derecha) */}
+          <div className="flex flex-col">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Asesoría SUNAT gratuita</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-brand-dark dark:text-white tracking-tight mt-1 leading-tight">
+              ¿Listo para dar el gran salto tecnológico?
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-3">
+              Déjanos tus datos y un especialista tributario se pondrá en contacto contigo en menos de 15 minutos para resolver tus dudas sobre homologación, certificado digital y emisión electrónica, sin costo alguno.
+            </p>
+
+            {/* Grid de datos de contacto */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-7 mt-8">
+              <div>
+                <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                  <Phone className="w-5 h-5" />
                 </div>
-              ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-4">
-                  <h3 className="text-lg font-bold text-brand-dark dark:text-white">Solicita tu demo interactiva personalizada</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Completa tus datos comerciales para activar la prueba gratuita de Factufly.</p>
+                <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Teléfono</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">(01) 640-9821</p>
+              </div>
+              <div>
+                <div className="w-10 h-10 rounded-full bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center justify-center">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Correo</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ventas@factufly.pe</p>
+              </div>
+              <div>
+                <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
+                  <img src={whatsappIcon} alt="" className="w-5 h-5" />
+                </div>
+                <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">WhatsApp</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">+51 987 654 321</p>
+              </div>
+              <div>
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Oficina</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Av. Larco 450, Miraflores, Lima</p>
+              </div>
+            </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Nombre Completo</label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Ej. Carlos Mendoza"
-                        className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Correo Electrónico</label>
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Ej. carlos@empresa.pe"
-                        className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Número Celular / WhatsApp</label>
-                      <input
-                        type="text"
-                        required
-                        maxLength={9}
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                        placeholder="Ej. 987654321"
-                        className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 font-mono"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">RUC de la Empresa (Opcional)</label>
-                      <input
-                        type="text"
-                        maxLength={11}
-                        value={ruc}
-                        onChange={(e) => setRuc(e.target.value.replace(/\D/g, ''))}
-                        placeholder="Ej. 20554433221"
-                        className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 font-mono"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-700 hover:to-red-700 disabled:opacity-50 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-blue-500/10 cursor-pointer"
-                    >
-                      {submitting ? (
-                        <>Inscribiendo...</>
-                      ) : (
-                        <>
-                          <Send className="w-3.5 h-3.5" /> Solicitar Asesoría y Demo Gratis
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                  <p className="text-[10px] text-slate-500 text-center leading-relaxed">
-                    Al hacer clic, aceptas que Factufly procese tus datos con fines informativos y comerciales de acuerdo con la Ley N° 29733 (Protección de Datos Personales en Perú).
-                  </p>
-                </form>
-              )}
+            {/* Mapa */}
+            <div className="mt-8 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
+              <iframe
+                title="Ubicación FactuFly"
+                src="https://maps.google.com/maps?q=Av.%20Larco%20450%20Miraflores%20Lima&z=15&output=embed"
+                className="w-full h-48 grayscale-[20%] dark:grayscale dark:contrast-125 dark:opacity-90"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 

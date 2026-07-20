@@ -30,7 +30,7 @@ export default function Features() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-5 items-stretch">
 
           {/* TIPO DE CAMBIO (S/ → $) */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <ArrowRightLeft className="w-5 h-5" />
@@ -43,7 +43,7 @@ export default function Features() {
           </div>
 
           {/* ENVÍO POR EMAIL Y WHATSAPP (mockup dentro de iPhone) */}
-          <div className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 flex flex-col shadow-sm">
+          <div className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 flex flex-col shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <Smartphone className="w-5 h-5" />
@@ -157,7 +157,7 @@ export default function Features() {
           </div>
 
           {/* Búsqueda RENIEC / SUNAT */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
                 <Search className="w-5 h-5" />
@@ -170,7 +170,7 @@ export default function Features() {
           </div>
 
           {/* Permisos y roles */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
                 <Users className="w-5 h-5" />
@@ -183,7 +183,7 @@ export default function Features() {
           </div>
 
           {/* Código de barras */}
-          <div className="sm:col-span-2 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-2 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
                 <Barcode className="w-5 h-5" />
@@ -196,7 +196,7 @@ export default function Features() {
           </div>
 
           {/* Ticketera térmica */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
                 <Printer className="w-5 h-5" />
@@ -209,7 +209,7 @@ export default function Features() {
           </div>
 
           {/* IGV configurable */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <Percent className="w-5 h-5" />
