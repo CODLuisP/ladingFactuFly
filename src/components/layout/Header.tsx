@@ -57,8 +57,8 @@ export default function Header() {
               <span className="text-xl font-bold tracking-tight text-brand-dark dark:text-white flex items-center">
                 Factu<span className="text-[#a80a0a] dark:text-[#e67b87]">Fly</span>
               </span>
-              <span className="block text-[9px] font-bold tracking-widest text-slate-800 dark:text-white uppercase -mt-0.5 flex items-center gap-0.5">
-                 Sistema de facturación electrónica 
+              <span className="hidden min-[1285px]:flex text-[9px] font-bold tracking-widest text-slate-800 dark:text-white uppercase -mt-0.5 items-center gap-0.5">
+                 Sistema de facturación electrónica
               </span>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function Header() {
               href="https://factufly.ideatec.com.pe/"
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-white/90 hover:text-brand-red dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-all cursor-pointer border border-slate-200/60 dark:border-white/20"
+              className="hidden min-[1285px]:inline-block px-4 py-2 text-sm font-semibold text-slate-600 dark:text-white/90 hover:text-brand-red dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-all cursor-pointer border border-slate-200/60 dark:border-white/20"
             >
               Ingresar al Sistema
             </a>
