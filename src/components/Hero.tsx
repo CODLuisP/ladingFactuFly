@@ -214,18 +214,299 @@ export default function Hero() {
   const activeChartData = chartPeriod === 'weekly' ? weeklyData : monthlyData;
   const maxChartValue = Math.max(...activeChartData.map(d => d.value));
 
-  // ===== DARK: Container Scroll Animation (tilt 3D → plano) + tarjeta que sube tapando el texto =====
+  // Textos/CTA compartidos entre mobile y desktop (evita duplicar el contenido, solo cambia el tamaño/layout)
+  const heroTitle = (
+    <>Tu punto de venta y facturación electrónica,{' '}<span className="italic font-serif font-normal opacity-95">ahora en un solo sistema.</span></>
+  );
+  const heroSubtitle = (label: 'dark' | 'light') => (
+    <>
+      Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
+      <picture className="inline align-middle mx-0.5">
+        <source srcSet={sunatLogoWebp} type="image/webp" />
+        <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-5 sm:h-6 w-auto align-middle" />
+      </picture>{' '}
+      <span className={`font-extrabold ${label === 'dark' ? 'text-white' : 'text-blue-900'}`}>SUNAT</span>, cero multas.
+    </>
+  );
+
+  // ===== DARK: mobile en flujo normal (sin pin/tilt) + desktop con Container Scroll Animation =====
   if (darkMode) {
     return (
       <section id="hero" className="relative -mt-16 bg-surface-dark-1">
-        {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
+
+        {/* ===== MOBILE / TABLET (< lg): flujo normal, sigue bajando si no alcanza, sin efecto de tilt ===== */}
+        <div className="lg:hidden relative overflow-hidden">
+          <picture className="absolute inset-0 w-full h-full pointer-events-none">
+            <source srcSet={fondoDarkWebp} type="image/webp" />
+            <img src={fondoDark} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
+          </picture>
+          <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
+
+          <div className="relative z-10 px-5 pt-24 pb-10 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[26px] sm:text-3xl font-bold tracking-tight text-white leading-[1.2] mb-4"
+            >
+              {heroTitle}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-sm font-semibold text-slate-300 max-w-md mx-auto leading-relaxed mb-6"
+            >
+              {heroSubtitle('dark')}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col items-center gap-2.5"
+            >
+              <button
+                onClick={() => scrollToSection('planes')}
+                className="w-full max-w-xs px-6 py-2.5 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
+              >
+                Comienza Gratis
+              </button>
+              <a
+                href="https://factufly.ideatec.com.pe/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full max-w-xs px-6 py-2.5 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer text-center inline-block"
+              >
+                Ingresar al Sistema
+              </a>
+            </motion.div>
+
+            {/* Dashboard: imagen estática, sin tilt ni pin (solo en desktop tiene ese efecto) */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8"
+            >
+              <picture>
+                <source srcSet={`${desktopDark640} 640w, ${desktopDark} 1200w`} sizes="100vw" type="image/webp" />
+                <img
+                  src={desktopDark}
+                  alt="FactuFly Dashboard"
+                  width={1200}
+                  height={750}
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-auto"
+                  style={{ filter: 'drop-shadow(0 20px 28px rgba(0,0,0,0.6)) drop-shadow(0 0 26px rgba(59,130,246,0.25))' }}
+                />
+              </picture>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ===== DESKTOP (lg+): pista de scroll + sticky + Container Scroll Animation (tilt 3D → plano) ===== */}
+        <div className="hidden lg:block">
+          <div ref={scrollRef} className="relative h-[135vh]">
+            <div className="sticky top-0 h-screen overflow-hidden">
+              {/* Fondo */}
+              <picture className="absolute inset-0 w-full h-full pointer-events-none">
+                <source srcSet={fondoDarkWebp} type="image/webp" />
+                <img
+                  src={fondoDark}
+                  alt=""
+                  width={1920}
+                  height={1080}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
+              {/* Viñeta para fundir el fondo con la sección */}
+              <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
+
+              {/* Texto (fijo, centrado) */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-center">
+                <div className="w-full max-w-3xl mx-auto px-6 -mt-82 text-center">
+                  {/* Titular */}
+                  <motion.h1
+                    initial={{ opacity: 0, y: 28 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-4xl xl:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-5"
+                  >
+                    {heroTitle}
+                  </motion.h1>
+
+                  {/* Subtítulo */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-sm xl:text-[15px] font-semibold text-slate-300 max-w-lg mx-auto leading-relaxed mb-7"
+                  >
+                    {heroSubtitle('dark')}
+                  </motion.p>
+
+                  {/* CTA */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex items-center justify-center gap-3"
+                  >
+                    <button
+                      onClick={() => scrollToSection('planes')}
+                      className="px-6 py-2.5 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
+                    >
+                      Comienza Gratis
+                    </button>
+                    <a
+                      href="https://factufly.ideatec.com.pe/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-6 py-2.5 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer text-center inline-block"
+                    >
+                      Ingresar al Sistema
+                    </a>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Dashboard: absoluto dentro del escenario. Arranca abajo (peek), se aplana y
+                  sube tapando el texto. Al no estar en el flujo, no deja hueco al terminar. */}
+              <div
+                id="demo-section"
+                className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6 pointer-events-none"
+                style={{ perspective: '1200px' }}
+              >
+                <motion.div
+                  style={{
+                    rotateX,
+                    scale,
+                    y: imageY,
+                    transformStyle: 'preserve-3d',
+                  }}
+                  className="will-change-transform"
+                >
+                  {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
+                      así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
+                  <picture>
+                    <source srcSet={`${desktopDark640} 640w, ${desktopDark} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
+                    <img
+                      src={desktopDark}
+                      alt="FactuFly Dashboard"
+                      width={1200}
+                      height={750}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                      className="w-full h-auto"
+                      style={{
+                        filter:
+                          'drop-shadow(0 24px 34px rgba(0,0,0,0.65)) drop-shadow(0 0 34px rgba(59,130,246,0.28))',
+                      }}
+                    />
+                  </picture>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // ===== LIGHT: mismo layout/animación que el dark, con fondo claro (fondoligth) =====
+  return (
+    <section id="hero" className="relative -mt-16 bg-[#eef3fc]">
+
+      {/* ===== MOBILE / TABLET (< lg): flujo normal, sigue bajando si no alcanza, sin efecto de tilt ===== */}
+      <div className="lg:hidden relative overflow-hidden">
+        <picture className="absolute inset-0 w-full h-full pointer-events-none">
+          <source srcSet={fondoLightWebp} type="image/webp" />
+          <img src={fondoLight} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
+
+        <div className="relative z-10 px-5 pt-24 pb-10 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[26px] sm:text-3xl font-bold tracking-tight text-slate-900 leading-[1.2] mb-4"
+          >
+            {heroTitle}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-sm font-semibold text-slate-700 max-w-md mx-auto leading-relaxed mb-6"
+          >
+            {heroSubtitle('light')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center gap-2.5"
+          >
+            <button
+              onClick={() => scrollToSection('planes')}
+              className="w-full max-w-xs px-6 py-2.5 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-600/25 transition-all cursor-pointer border border-blue-700/20"
+            >
+              Comienza Gratis
+            </button>
+            <a
+              href="https://factufly.ideatec.com.pe/"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full max-w-xs px-6 py-2.5 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200 text-center inline-block"
+            >
+              Ingresar al Sistema
+            </a>
+          </motion.div>
+
+          {/* Dashboard: imagen estática, sin tilt ni pin (solo en desktop tiene ese efecto) */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8"
+          >
+            <picture>
+              <source srcSet={`${desktopLight640} 640w, ${desktopLight} 1200w`} sizes="100vw" type="image/webp" />
+              <img
+                src={desktopLight}
+                alt="FactuFly Dashboard"
+                width={1200}
+                height={750}
+                loading="eager"
+                decoding="async"
+                className="w-full h-auto"
+                style={{ filter: 'drop-shadow(0 20px 28px rgba(37,99,235,0.2)) drop-shadow(0 0 24px rgba(59,130,246,0.18))' }}
+              />
+            </picture>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ===== DESKTOP (lg+): pista de scroll + sticky + Container Scroll Animation (tilt 3D → plano) ===== */}
+      <div className="hidden lg:block">
         <div ref={scrollRef} className="relative h-[135vh]">
           <div className="sticky top-0 h-screen overflow-hidden">
             {/* Fondo */}
             <picture className="absolute inset-0 w-full h-full pointer-events-none">
-              <source srcSet={fondoDarkWebp} type="image/webp" />
+              <source srcSet={fondoLightWebp} type="image/webp" />
               <img
-                src={fondoDark}
+                src={fondoLight}
                 alt=""
                 width={1920}
                 height={1080}
@@ -236,27 +517,20 @@ export default function Hero() {
               />
             </picture>
             {/* Viñeta para fundir el fondo con la sección */}
-            <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
 
             {/* Texto (fijo, centrado) */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center">
-              <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
-                {/* Badge */}
-                {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-white/80 border border-white/15 bg-white/5 backdrop-blur-sm">
-                  <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                  100% Homologado y Conectado con SUNAT
-                </div> */}
-
+              <div className="w-full max-w-3xl mx-auto px-6 -mt-82 text-center">
                 {/* Titular */}
                 <motion.h1
                   initial={{ opacity: 0, y: 28 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6"
+                  className="text-4xl xl:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5"
                 >
-                  Tu punto de venta y facturación electrónica,{' '}
-                  <span className="italic font-serif font-normal text-white/95">ahora en un solo sistema.</span>
+                  {heroTitle}
                 </motion.h1>
 
                 {/* Subtítulo */}
@@ -264,14 +538,9 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-[15px] font-semibold text-slate-300 max-w-xl mx-auto leading-relaxed mb-8"
+                  className="text-sm xl:text-[15px] font-semibold text-slate-700 max-w-lg mx-auto leading-relaxed mb-7"
                 >
-                  Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
-                  <picture className="inline align-middle mx-0.5">
-                    <source srcSet={sunatLogoWebp} type="image/webp" />
-                    <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-6 w-auto align-middle" />
-                  </picture>{' '}
-                  <span className="font-extrabold text-white">SUNAT</span>, cero multas.
+                  {heroSubtitle('light')}
                 </motion.p>
 
                 {/* CTA */}
@@ -279,11 +548,11 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-3"
+                  className="flex items-center justify-center gap-3"
                 >
                   <button
                     onClick={() => scrollToSection('planes')}
-                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
+                    className="px-6 py-2.5 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-600/25 transition-all cursor-pointer border border-blue-700/20"
                   >
                     Comienza Gratis
                   </button>
@@ -291,7 +560,7 @@ export default function Hero() {
                     href="https://factufly.ideatec.com.pe/"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer text-center inline-block"
+                    className="px-6 py-2.5 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200 text-center inline-block"
                   >
                     Ingresar al Sistema
                   </a>
@@ -318,9 +587,9 @@ export default function Hero() {
                 {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
                     así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
                 <picture>
-                  <source srcSet={`${desktopDark640} 640w, ${desktopDark} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
+                  <source srcSet={`${desktopLight640} 640w, ${desktopLight} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
                   <img
-                    src={desktopDark}
+                    src={desktopLight}
                     alt="FactuFly Dashboard"
                     width={1200}
                     height={750}
@@ -330,138 +599,12 @@ export default function Hero() {
                     className="w-full h-auto"
                     style={{
                       filter:
-                        'drop-shadow(0 24px 34px rgba(0,0,0,0.65)) drop-shadow(0 0 34px rgba(59,130,246,0.28))',
+                        'drop-shadow(0 24px 34px rgba(37,99,235,0.22)) drop-shadow(0 0 30px rgba(59,130,246,0.20))',
                     }}
                   />
                 </picture>
               </motion.div>
             </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ===== LIGHT: mismo layout/animación que el dark, con fondo claro (fondoligth) =====
-  return (
-    <section id="hero" className="relative -mt-16 bg-[#eef3fc]">
-      {/* Pista de scroll: su altura define cuánto dura el pineado y la animación */}
-      <div ref={scrollRef} className="relative h-[135vh]">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          {/* Fondo */}
-          <picture className="absolute inset-0 w-full h-full pointer-events-none">
-            <source srcSet={fondoLightWebp} type="image/webp" />
-            <img
-              src={fondoLight}
-              alt=""
-              width={1920}
-              height={1080}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
-          </picture>
-          {/* Viñeta para fundir el fondo con la sección */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
-
-          {/* Texto (fijo, centrado) */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center">
-            <div className="w-full max-w-4xl mx-auto px-6 -mt-82 text-center">
-              {/* Badge */}
-              {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full text-xs font-medium text-slate-700 border border-slate-300/70 bg-white/70 backdrop-blur-sm">
-                <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-                100% Homologado y Conectado con SUNAT
-              </div> */}
-
-              {/* Titular */}
-              <motion.h1
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6"
-              >
-                Tu punto de venta y facturación electrónica,{' '}
-                <span className="italic font-serif font-normal text-slate-900/90">ahora en un solo sistema.</span>
-              </motion.h1>
-
-              {/* Subtítulo */}
-              <motion.p
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[15px] font-semibold text-slate-700 max-w-xl mx-auto leading-relaxed mb-8"
-              >
-                Vende, cobra y emite boletas, facturas y guías en segundos  con control de inventario y reportes. Homologado por{' '}
-                <picture className="inline align-middle mx-0.5">
-                  <source srcSet={sunatLogoWebp} type="image/webp" />
-                  <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-6 w-auto align-middle" />
-                </picture>{' '}
-                <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
-              </motion.p>
-
-              {/* CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-3"
-              >
-                <button
-                  onClick={() => scrollToSection('planes')}
-                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-600/25 transition-all cursor-pointer border border-blue-700/20"
-                >
-                  Comienza Gratis
-                </button>
-                <a
-                  href="https://factufly.ideatec.com.pe/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200 text-center inline-block"
-                >
-                  Ingresar al Sistema
-                </a>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Dashboard: absoluto dentro del escenario. Arranca abajo (peek), se aplana y
-              sube tapando el texto. Al no estar en el flujo, no deja hueco al terminar. */}
-          <div
-            id="demo-section"
-            className="absolute z-20 inset-x-0 top-0 w-full max-w-6xl mx-auto px-6 pointer-events-none"
-            style={{ perspective: '1200px' }}
-          >
-            <motion.div
-              style={{
-                rotateX,
-                scale,
-                y: imageY,
-                transformStyle: 'preserve-3d',
-              }}
-              className="will-change-transform"
-            >
-              {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
-                  así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
-              <picture>
-                <source srcSet={`${desktopLight640} 640w, ${desktopLight} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
-                <img
-                  src={desktopLight}
-                  alt="FactuFly Dashboard"
-                  width={1200}
-                  height={750}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-auto"
-                  style={{
-                    filter:
-                      'drop-shadow(0 24px 34px rgba(37,99,235,0.22)) drop-shadow(0 0 30px rgba(59,130,246,0.20))',
-                  }}
-                />
-              </picture>
-            </motion.div>
           </div>
         </div>
       </div>

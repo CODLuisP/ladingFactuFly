@@ -5,6 +5,7 @@ import sponsor04 from '../public/sponsors/sponsor04.webp';
 import sponsor05 from '../public/sponsors/sponsor05.webp';
 import sponsor06 from '../public/sponsors/sponsor06.webp';
 import sponsor07 from '../public/sponsors/sponsor07.webp';
+import LazyImage from './common/LazyImage';
 
 const SPONSORS = [sponsor01, sponsor02, sponsor03, sponsor04, sponsor05, sponsor06, sponsor07];
 
@@ -27,14 +28,13 @@ export default function Sponsors() {
         <div className="flex w-max animate-[sponsors-marquee_35s_linear_infinite] hover:[animation-play-state:paused]">
           {track.map((src, i) => (
             <div key={i} className="mx-8 sm:mx-12 flex shrink-0 items-center">
-              <img
+              <LazyImage
                 src={src}
                 alt="Empresa cliente"
                 width={120}
                 height={32}
-                loading="lazy"
-                decoding="async"
-                className="h-7 sm:h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity brightness-0 dark:brightness-100"
+                rootMargin="100px"
+                imgClassName="h-7 sm:h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity brightness-0 dark:brightness-100"
               />
             </div>
           ))}

@@ -45,7 +45,7 @@ function AppContent() {
             <Suspense fallback={null}><Reveal><Pricing /></Reveal></Suspense>
           </main>
           <Suspense fallback={null}><Reveal><ContactSection /></Reveal></Suspense>
-          <Suspense fallback={null}><Footer /></Suspense>
+          <Suspense fallback={null}><Reveal minHeight="200px"><Footer /></Reveal></Suspense>
         </>
       )}
       <FloatingWhatsApp />
