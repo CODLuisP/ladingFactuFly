@@ -4,10 +4,15 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { InvoiceItem, ClientSearchResult } from '../types';
 
 import fondoDark from '../public/fondodark.jpg';
+import fondoDarkWebp from '../public/fondodark.webp';
 import fondoLight from '../public/fondoligth.jpg';
+import fondoLightWebp from '../public/fondoligth.webp';
 import desktopDark from '../public/desktopdark.webp';
+import desktopDark640 from '../public/desktopdark-640.webp';
 import desktopLight from '../public/desktopligth.webp';
+import desktopLight640 from '../public/desktopligth-640.webp';
 import sunatLogo from '../public/sunat.png';
+import sunatLogoWebp from '../public/sunat.webp';
 import { useNavigation } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -32,14 +37,6 @@ export default function Hero() {
     target: scrollRef,
     offset: ['start start', 'end end'],
   });
-  // Precarga las dos imágenes del dashboard para que el cambio de modo sea instantáneo
-  // (cada PNG pesa ~6.5 MB y, si no, recién se descarga al togglear).
-  useEffect(() => {
-    [desktopDark, desktopLight, fondoDark, fondoLight].forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
 
   const rotateX = useTransform(scrollYProgress, [0, 0.4], [26, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.4], [0.92, 1]);
@@ -225,11 +222,19 @@ export default function Hero() {
         <div ref={scrollRef} className="relative h-[135vh]">
           <div className="sticky top-0 h-screen overflow-hidden">
             {/* Fondo */}
-            <img
-              src={fondoDark}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-            />
+            <picture className="absolute inset-0 w-full h-full pointer-events-none">
+              <source srcSet={fondoDarkWebp} type="image/webp" />
+              <img
+                src={fondoDark}
+                alt=""
+                width={1920}
+                height={1080}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </picture>
             {/* Viñeta para fundir el fondo con la sección */}
             <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
@@ -262,7 +267,10 @@ export default function Hero() {
                   className="text-[15px] font-semibold text-slate-300 max-w-xl mx-auto leading-relaxed mb-8"
                 >
                   Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
-                  <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
+                  <picture className="inline align-middle mx-0.5">
+                    <source srcSet={sunatLogoWebp} type="image/webp" />
+                    <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-6 w-auto align-middle" />
+                  </picture>{' '}
                   <span className="font-extrabold text-white">SUNAT</span>, cero multas.
                 </motion.p>
 
@@ -309,15 +317,23 @@ export default function Hero() {
               >
                 {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
                     así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
-                <img
-                  src={desktopDark}
-                  alt="FactuFly Dashboard"
-                  className="w-full h-auto"
-                  style={{
-                    filter:
-                      'drop-shadow(0 24px 34px rgba(0,0,0,0.65)) drop-shadow(0 0 34px rgba(59,130,246,0.28))',
-                  }}
-                />
+                <picture>
+                  <source srcSet={`${desktopDark640} 640w, ${desktopDark} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
+                  <img
+                    src={desktopDark}
+                    alt="FactuFly Dashboard"
+                    width={1200}
+                    height={750}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-auto"
+                    style={{
+                      filter:
+                        'drop-shadow(0 24px 34px rgba(0,0,0,0.65)) drop-shadow(0 0 34px rgba(59,130,246,0.28))',
+                    }}
+                  />
+                </picture>
               </motion.div>
             </div>
           </div>
@@ -333,11 +349,19 @@ export default function Hero() {
       <div ref={scrollRef} className="relative h-[135vh]">
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* Fondo */}
-          <img
-            src={fondoLight}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          />
+          <picture className="absolute inset-0 w-full h-full pointer-events-none">
+            <source srcSet={fondoLightWebp} type="image/webp" />
+            <img
+              src={fondoLight}
+              alt=""
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </picture>
           {/* Viñeta para fundir el fondo con la sección */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
@@ -370,7 +394,10 @@ export default function Hero() {
                 className="text-[15px] font-semibold text-slate-700 max-w-xl mx-auto leading-relaxed mb-8"
               >
                 Vende, cobra y emite boletas, facturas y guías en segundos  con control de inventario y reportes. Homologado por{' '}
-                <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
+                <picture className="inline align-middle mx-0.5">
+                  <source srcSet={sunatLogoWebp} type="image/webp" />
+                  <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-6 w-auto align-middle" />
+                </picture>{' '}
                 <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
               </motion.p>
 
@@ -417,15 +444,23 @@ export default function Hero() {
             >
               {/* Sin caja rectangular: el drop-shadow respeta la transparencia del PNG,
                   así el borde/sombra sigue la silueta real (ventana, impresora y celular). */}
-              <img
-                src={desktopLight}
-                alt="FactuFly Dashboard"
-                className="w-full h-auto"
-                style={{
-                  filter:
-                    'drop-shadow(0 24px 34px rgba(37,99,235,0.22)) drop-shadow(0 0 30px rgba(59,130,246,0.20))',
-                }}
-              />
+              <picture>
+                <source srcSet={`${desktopLight640} 640w, ${desktopLight} 1200w`} sizes="(max-width: 640px) 640px, 1200px" type="image/webp" />
+                <img
+                  src={desktopLight}
+                  alt="FactuFly Dashboard"
+                  width={1200}
+                  height={750}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-auto"
+                  style={{
+                    filter:
+                      'drop-shadow(0 24px 34px rgba(37,99,235,0.22)) drop-shadow(0 0 30px rgba(59,130,246,0.20))',
+                  }}
+                />
+              </picture>
             </motion.div>
           </div>
         </div>

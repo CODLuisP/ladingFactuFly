@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import LazyImage from './common/LazyImage';
 import logoFactufly from '../public/logofactufly.jpeg';
+import logoFactuflyWebp from '../public/logofactufly.webp';
 import qrComprobante from '../public/comprobantes/qr.png';
+import qrComprobanteWebp from '../public/comprobantes/qr.webp';
 import logoSunat from '../public/logoSUNAT.webp';
 
 interface ResumenRow { label: string; val: string; }
@@ -226,18 +229,27 @@ export default function DocumentTypes() {
           {/* Right: vista previa realista del comprobante (papel blanco tipo PDF) */}
           <div className="lg:col-span-7 flex relative">
             {/* Sello SUNAT: superpuesto en la esquina superior derecha */}
-            <img
-              src={logoSunat}
-              alt="100% Integrado con SUNAT"
-              className="absolute -top-9 -right-10 sm:-top-8 sm:-right-5 w-15 sm:w-15 drop-shadow-lg z-10 pointer-events-none select-none"
-            />
+            <picture className="absolute -top-9 -right-10 sm:-top-8 sm:-right-5 w-15 sm:w-15 drop-shadow-lg z-10 pointer-events-none select-none">
+              <img
+                src={logoSunat}
+                alt="100% Integrado con SUNAT"
+                width={60}
+                height={73}
+                loading="lazy"
+                decoding="async"
+                className="w-15 sm:w-15 h-auto object-contain drop-shadow-lg"
+              />
+            </picture>
             <div className="w-full bg-white text-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden flex flex-col">
 
               {/* Cabecera: emisor + recuadro de RUC / tipo de documento */}
               <div className="p-4 sm:p-6 flex justify-between items-start gap-2 sm:gap-4 flex-nowrap">
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
                   <div className="relative w-14 h-14 sm:w-18 sm:h-18 rounded-md shrink-0 shadow-md overflow-hidden">
-                    <img src={logoFactufly} alt="FactuFly" width={72} height={72} className="w-full h-full object-cover" />
+                    <picture className="w-full h-full block">
+                      <source srcSet={logoFactuflyWebp} type="image/webp" />
+                      <img src={logoFactufly} alt="FactuFly" width={72} height={72} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                    </picture>
                     {/* Capa indicando que aquí va el logo del cliente */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/45">
                       <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white text-center leading-tight">Tu Logo</span>
@@ -309,7 +321,10 @@ export default function DocumentTypes() {
 
               {/* Pie: QR + Resumen */}
               <div className="px-5 sm:px-6 py-5 mt-auto flex justify-between items-end gap-6 flex-wrap">
-                <img src={qrComprobante} alt="Código QR SUNAT" width={96} height={96} className="w-24 h-24 object-contain" />
+                <picture className="w-24 h-24 block">
+                  <source srcSet={qrComprobanteWebp} type="image/webp" />
+                  <img src={qrComprobante} alt="Código QR SUNAT" width={96} height={96} loading="lazy" decoding="async" className="w-24 h-24 object-contain" />
+                </picture>
 
                 <div className="w-full sm:w-60 text-[11px]">
                   <p className="font-bold text-brand-blue mb-1">Resumen</p>

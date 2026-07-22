@@ -188,7 +188,7 @@ export default function Modules() {
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-4">
                 <div className="flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
-                  <img src={whatsappIcon} alt="" width={24} height={24} className="w-6 h-6" />
+                  <img src={whatsappIcon} alt="" width={24} height={24} loading="lazy" decoding="async" className="w-6 h-6" />
                   <span className="font-bold text-sm text-slate-900 dark:text-white">Factufly</span>
                   <span className="ml-auto text-[11px] text-slate-400">ahora</span>
                 </div>

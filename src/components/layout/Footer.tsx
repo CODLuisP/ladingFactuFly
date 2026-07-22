@@ -3,6 +3,7 @@ import { Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import footerBg from '../../public/footer.webp';
 import logoFactufly from '../../public/logofactuflyb.png';
+import logoFactuflyWebp from '../../public/logofactuflyb.webp';
 import whatsappIcon from '../../public/comprobantes/whatsapp-icon.svg';
 
 // Footer real: sección aparte, siempre oscura, con imagen de fondo.
@@ -11,7 +12,15 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden text-slate-300 bg-[#04060d]">
-      <img src={footerBg} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <img
+        src={footerBg}
+        alt=""
+        width={1200}
+        height={600}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
       <div className="absolute inset-0 bg-[#04060d]/90 pointer-events-none" />
 
       <div className="relative z-10">
@@ -23,7 +32,10 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="relative flex items-center justify-center w-9 h-9 rounded-md bg-[#0f2e64] border border-white/10 shrink-0">
-                <img src={logoFactufly} alt="FactuFly" width={20} height={20} className="w-5 h-5 object-contain" />
+                <picture>
+                  <source srcSet={logoFactuflyWebp} type="image/webp" />
+                  <img src={logoFactufly} alt="FactuFly" width={20} height={20} loading="lazy" decoding="async" className="w-5 h-5 object-contain" />
+                </picture>
               </div>
               <span className="text-lg font-black text-white">FactuFly</span>
             </div>

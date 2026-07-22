@@ -7,7 +7,10 @@ import {
 import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
 import gmailIcon from '../public/comprobantes/gmail.svg';
 import iphoneFrame from '../public/comprobantes/iphone.png';
+import iphoneFrameWebp from '../public/comprobantes/iphone.webp';
 import logoFactufly from '../public/logofactufly.jpeg';
+import logoFactuflyWebp from '../public/logofactufly.webp';
+import LazyImage from './common/LazyImage';
 
 export default function Features() {
   // Plantilla activa del simulador de notificación (email/WhatsApp)
@@ -104,7 +107,10 @@ export default function Features() {
                           <span>WhatsApp</span>
                         </div>
                         <div className="flex items-center gap-2 px-3 pb-2">
-                          <img src={logoFactufly} alt="FactuFly" width={28} height={28} className="w-7 h-7 rounded-full object-cover shrink-0" />
+                          <picture className="w-7 h-7 rounded-full overflow-hidden shrink-0 block">
+                            <source srcSet={logoFactuflyWebp} type="image/webp" />
+                            <img src={logoFactufly} alt="FactuFly" width={28} height={28} loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shrink-0" />
+                          </picture>
                           <div className="leading-tight min-w-0">
                             <p className="text-[10px] font-bold truncate">FactuFly</p>
                             <p className="text-[7px] text-white/70">en línea</p>
@@ -115,7 +121,7 @@ export default function Features() {
                       <div className="flex-1 p-2.5">
                         <div className="bg-white dark:bg-[#202c33] rounded-lg rounded-tl-none p-2 shadow-sm max-w-[94%]">
                           <p className="text-[8.5px] font-bold text-emerald-700 dark:text-emerald-400 mb-1 flex items-center gap-1">
-                            <img src={whatsappIcon} alt="" width={10} height={10} className="w-2.5 h-2.5" /> FactuFly
+                            <img src={whatsappIcon} alt="" width={10} height={10} loading="lazy" decoding="async" className="w-2.5 h-2.5" /> FactuFly
                           </p>
                           <p className="text-[8.5px] leading-snug text-slate-700 dark:text-slate-100">
                             Hola <b>Carlos</b> <Hand className="inline w-2.5 h-2.5 text-amber-500 align-text-bottom" />, tu <b>Factura F001-0004128</b> fue emitida por <b>S/ 150.00</b>.
@@ -137,7 +143,7 @@ export default function Features() {
                           <span>Gmail</span>
                         </div>
                         <div className="flex items-center gap-1.5 px-3 pb-2">
-                          <img src={gmailIcon} alt="" width={16} height={16} className="w-4 h-4" />
+                          <img src={gmailIcon} alt="" width={16} height={16} loading="lazy" decoding="async" className="w-4 h-4" />
                           <span className="text-[10px] font-bold text-slate-800 dark:text-white">Recibidos</span>
                         </div>
                       </div>
@@ -162,7 +168,10 @@ export default function Features() {
                 </div>
 
                 {/* Marco del iPhone por encima */}
-                <img src={iphoneFrame} alt="" className="absolute inset-0 w-full h-full pointer-events-none select-none" />
+                <picture className="absolute inset-0 w-full h-full pointer-events-none select-none">
+                  <source srcSet={iphoneFrameWebp} type="image/webp" />
+                  <img src={iphoneFrame} alt="" width={210} height={420} loading="lazy" decoding="async" className="w-full h-full object-contain" />
+                </picture>
               </div>
             </div>
           </motion.div>

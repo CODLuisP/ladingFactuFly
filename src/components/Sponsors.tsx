@@ -30,7 +30,10 @@ export default function Sponsors() {
               <img
                 src={src}
                 alt="Empresa cliente"
+                width={120}
+                height={32}
                 loading="lazy"
+                decoding="async"
                 className="h-7 sm:h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity brightness-0 dark:brightness-100"
               />
             </div>
