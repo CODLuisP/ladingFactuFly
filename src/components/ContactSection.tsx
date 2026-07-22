@@ -62,14 +62,14 @@ export default function ContactSection() {
 
                 <div className="space-y-1">
                   <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Nombre</label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Tu nombre..."
-                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus-visible:outline-none focus:ring-1 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
-                  />
+<input
+  type="text"
+  required
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  placeholder="Tu nombre..."
+  className="w-full px-4 py-3 bg-white dark:bg-surface-dark-1 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none"
+/>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -81,7 +81,7 @@ export default function ContactSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="ejemplo@correo.com"
-                      className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus-visible:outline-none focus:ring-1 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600"
+                    className="w-full px-4 py-3 bg-white dark:bg-surface-dark-1 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
@@ -92,8 +92,8 @@ export default function ContactSection() {
                       maxLength={9}
                       value={phone}
                       onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                      placeholder="987654321"
-                      className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus-visible:outline-none focus:ring-1 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 font-mono"
+                      placeholder="952379386"
+                 className="w-full px-4 py-3 bg-white dark:bg-surface-dark-1 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Cuéntanos qué necesitas..."
-                    className="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white focus:outline-none focus-visible:outline-none focus:ring-1 focus:ring-blue-500 placeholder-slate-400 dark:placeholder-slate-600 resize-none"
+              className="w-full px-4 py-3 bg-white dark:bg-surface-dark-1 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-brand-dark dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none"
                   />
                 </div>
 
@@ -142,28 +142,28 @@ export default function ContactSection() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Teléfono</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">(01) 640-9821</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">+51 952 379 386</p>
               </div>
               <div>
                 <div className="w-10 h-10 rounded-full bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center justify-center">
                   <Mail className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Correo</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ventas@factufly.pe</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">info@ideatec.com.pe</p>
               </div>
               <div>
                 <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
                   <img src={whatsappIcon} alt="" className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">WhatsApp</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">+51 987 654 321</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">+51 952 379 386</p>
               </div>
               <div>
                 <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">Oficina</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Av. Larco 450, Miraflores, Lima</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Av. Petit Thouars 1775, Int. 501, Lince, Lima</p>
               </div>
             </div>
 
@@ -171,7 +171,7 @@ export default function ContactSection() {
             <div className="mt-8 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
               <iframe
                 title="Ubicación FactuFly"
-                src="https://maps.google.com/maps?q=Av.%20Larco%20450%20Miraflores%20Lima&z=15&output=embed"
+                src="https://maps.google.com/maps?q=Av.%20Petit%20Thouars%201775%20Lince%20Lima&z=15&output=embed"
                 className="w-full h-48"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

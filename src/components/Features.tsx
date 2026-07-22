@@ -137,7 +137,7 @@ export default function Features() {
                           <div className="w-6 h-6 rounded-full bg-indigo-500 text-white text-[9px] flex items-center justify-center font-black shrink-0">F</div>
                           <div className="leading-tight min-w-0">
                             <p className="text-[8px] font-semibold text-slate-800 dark:text-slate-200 truncate">FactuFly</p>
-                            <p className="text-[7px] text-slate-400 truncate">comprobantes@factufly.pe</p>
+                            <p className="text-[7px] text-slate-400 truncate">comprobantes@ideatec.com.pe</p>
                           </div>
                         </div>
                         <p className="text-[8px] text-slate-600 dark:text-slate-300 leading-snug">Estimado Carlos, adjuntamos su Boleta de Venta Electrónica homologada.</p>

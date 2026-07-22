@@ -258,7 +258,7 @@ export default function Hero() {
                 </h1>
 
                 {/* Subtítulo */}
-                <p className="text-[15px] text-white/60 max-w-xl mx-auto leading-relaxed mb-8">
+                <p className="text-[15px] font-semibold text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
                   Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
                   <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                   <span className="font-extrabold text-white">SUNAT</span>, cero multas.
@@ -272,12 +272,14 @@ export default function Hero() {
                   >
                     Comienza Gratis
                   </button>
-                  <button
-                    onClick={() => scrollToSection('demo-section')}
-                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer"
+                  <a
+                    href="https://factufly.ideatec.com.pe/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-white rounded-full transition-all cursor-pointer text-center inline-block"
                   >
-                    Probar Simulador
-                  </button>
+                    Ingresar al Sistema
+                  </a>
                 </div>
               </div>
             </div>
@@ -349,7 +351,7 @@ export default function Hero() {
               </h1>
 
               {/* Subtítulo */}
-              <p className="text-[15px] text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
+              <p className="text-[15px] font-semibold text-slate-900 max-w-xl mx-auto leading-relaxed mb-8">
                 Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
                 <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                 <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
@@ -363,12 +365,14 @@ export default function Hero() {
                 >
                   Comienza Gratis
                 </button>
-                <button
-                  onClick={() => scrollToSection('demo-section')}
-                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200"
+                <a
+                  href="https://factufly.ideatec.com.pe/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 rounded-full transition-all cursor-pointer border border-slate-200 text-center inline-block"
                 >
-                  Probar Simulador
-                </button>
+                  Ingresar al Sistema
+                </a>
               </div>
             </div>
           </div>

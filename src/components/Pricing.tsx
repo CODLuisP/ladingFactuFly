@@ -116,7 +116,7 @@ export default function Pricing() {
             </div>
 
             {/* Derecha: todo lo que incluye */}
-            <div className="p-8 sm:p-9">
+            <div className="p-8 sm:p-9 dark:bg-surface-dark-1">
               <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5">
                 Todo lo que incluye (sin excepciones)
               </p>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import footerBg from '../../public/footer.jpg';
 import logoFactufly from '../../public/logofactuflyb.png';
+import whatsappIcon from '../../public/comprobantes/whatsapp-icon.svg';
 
 // Footer real: sección aparte, siempre oscura, con imagen de fondo.
 export default function Footer() {
@@ -11,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden text-slate-300 bg-[#04060d]">
       <img src={footerBg} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
-      <div className="absolute inset-0 bg-[#04060d]/98 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#04060d]/90 pointer-events-none" />
 
       <div className="relative z-10">
 
@@ -37,9 +38,9 @@ export default function Footer() {
             <h4 className="text-xs font-black text-white uppercase tracking-widest">Navegación</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => scrollToSection('hero')} className="hover:text-white transition-colors cursor-pointer">
-                  Inicio / Demo
-                </button>
+                <a href="https://factufly.ideatec.com.pe/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors cursor-pointer">
+                  Ingresar al Sistema
+                </a>
               </li>
               <li>
                 <button onClick={() => scrollToSection('comprobantes')} className="hover:text-white transition-colors cursor-pointer">
@@ -64,29 +65,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Links Column 2 - SUNAT context */}
+          {/* Links Column 2 - Contacto y Soporte Directo */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-black text-white uppercase tracking-widest">Recursos SUNAT</h4>
-            <ul className="space-y-2 text-xs">
+            <h4 className="text-xs font-black text-white uppercase tracking-widest">Contacto y Soporte</h4>
+            <ul className="space-y-2.5 text-xs">
               <li>
-                <a href="https://www.sunat.gob.pe/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-1">
-                  Portal de la SUNAT Oficial <ExternalLink className="w-3 h-3" />
+                <a
+                  href="https://wa.me/51952379386?text=Hola,%20necesito%20asesor%C3%ADa%20sobre%20FactuFly"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-2 text-slate-300"
+                >
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-3.5 h-3.5 shrink-0" />
+                  Soporte WhatsApp (+51 952 379 386)
                 </a>
               </li>
               <li>
-                <a href="https://www.reniec.gob.pe/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-1">
-                  Consulta RENIEC Oficial <ExternalLink className="w-3 h-3" />
+                <a
+                  href="mailto:info@ideatec.com.pe"
+                  className="hover:text-white transition-colors inline-flex items-center gap-2 text-slate-300"
+                >
+                  <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  info@ideatec.com.pe
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Verificación de Comprobantes (CDR)
-                </a>
+              <li className="flex items-start gap-2 text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
+                <span>Av. Petit Thouars 1775, Int. 501, Lince, Lima — Perú</span>
               </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Descarga de Certificado Digital
-                </a>
+              <li className="flex items-center gap-2 text-slate-400">
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                <span>RUC 20601841038</span>
               </li>
             </ul>
           </div>

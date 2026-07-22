@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import logoFactufly from '../public/logofactufly.jpeg';
 import qrComprobante from '../public/comprobantes/qr.png';
+import logoSunat from '../public/logoSUNAT.png';
 
 interface ResumenRow { label: string; val: string; }
 
@@ -29,9 +30,9 @@ interface DocTypeItem {
 const EMISOR = {
   nombre: 'FACTUFLY DEMOSTRACIÓN S.A.C.',
   razon: 'FACTUFLY DEMOSTRACIÓN SOCIEDAD ANÓNIMA CERRADA',
-  direccion: 'AV. JAVIER PRADO ESTE NRO. 1234 INT. 501, SAN ISIDRO LIMA LIMA',
-  contacto: 'Telf: 952075325 - 989112975  |  Email: info@factufly.pe',
-  ruc: '20608754123',
+  direccion: 'AV. PETIT THOUARS 1775, INT. 501, LINCE, LIMA — PERÚ',
+  contacto: 'Telf/WhatsApp: 952379386  |  Email: info@ideatec.com.pe',
+  ruc: '20601841038',
 };
 
 const DOCUMENTS: DocTypeItem[] = [
@@ -196,7 +197,7 @@ export default function DocumentTypes() {
                   className={`w-full text-left p-4.5 rounded-2xl border transition-all flex items-start gap-4 cursor-pointer relative overflow-hidden group ${
                     isActive
                       ? 'bg-gradient-to-br from-indigo-600 to-blue-700 border-transparent shadow-lg shadow-indigo-500/25 -translate-y-0.5'
-                      : 'bg-white dark:bg-slate-900 border-slate-200/60 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5 hover:shadow-md'
+                      : 'bg-brand-light dark:bg-slate-900 border-slate-200/60 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5 hover:shadow-md'
                   }`}
                 >
                   <div className="flex-1">
@@ -223,22 +224,28 @@ export default function DocumentTypes() {
           </div>
 
           {/* Right: vista previa realista del comprobante (papel blanco tipo PDF) */}
-          <div className="lg:col-span-7 flex">
+          <div className="lg:col-span-7 flex relative">
+            {/* Sello SUNAT: superpuesto en la esquina superior derecha */}
+            <img
+              src={logoSunat}
+              alt="100% Integrado con SUNAT"
+              className="absolute -top-9 -right-10 sm:-top-8 sm:-right-5 w-15 sm:w-15 drop-shadow-lg z-10 pointer-events-none select-none"
+            />
             <div className="w-full bg-white text-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden flex flex-col">
 
               {/* Cabecera: emisor + recuadro de RUC / tipo de documento */}
-              <div className="p-5 sm:p-6 flex justify-between items-start gap-4 flex-wrap">
-                <div className="flex items-start gap-3">
-                  <div className="relative w-20 h-20 rounded-xl shrink-0 shadow-md overflow-hidden">
+              <div className="p-4 sm:p-6 flex justify-between items-start gap-2 sm:gap-4 flex-nowrap">
+                <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
+                  <div className="relative w-14 h-14 sm:w-18 sm:h-18 rounded-md shrink-0 shadow-md overflow-hidden">
                     <img src={logoFactufly} alt="FactuFly" className="w-full h-full object-cover" />
                     {/* Capa indicando que aquí va el logo del cliente */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/45">
-                      <span className="text-[10px] font-bold uppercase tracking-wide text-white text-center leading-tight">Tu Logo</span>
+                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white text-center leading-tight">Tu Logo</span>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-black text-brand-blue leading-none">{EMISOR.nombre}</h3>
-                    <p className="text-[9.5px] text-slate-500 mt-1 leading-snug max-w-[280px]">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xs sm:text-base lg:text-lg font-black text-brand-blue leading-tight truncate sm:whitespace-normal">{EMISOR.nombre}</h3>
+                    <p className="text-[8.5px] sm:text-[9.5px] text-slate-500 mt-0.5 sm:mt-1 leading-snug">
                       {EMISOR.razon}<br />
                       Dir. Fiscal: {EMISOR.direccion}<br />
                       {EMISOR.contacto}
@@ -246,10 +253,10 @@ export default function DocumentTypes() {
                   </div>
                 </div>
 
-                <div className="border-2 border-brand-blue rounded-md text-center min-w-[190px] overflow-hidden text-[11px] font-bold">
-                  <div className="px-3 py-1.5 text-slate-800">R.U.C. {EMISOR.ruc}</div>
-                  <div className="px-3 py-1.5 text-white bg-brand-blue uppercase tracking-tight">{activeDoc.title}</div>
-                  <div className="px-3 py-1.5 text-slate-800 border-t border-slate-200">N° {activeDoc.serie}</div>
+                <div className="shrink-0 border-2 border-brand-blue rounded-md text-center min-w-[150px] sm:min-w-[180px] max-w-[200px] overflow-hidden text-[9.5px] sm:text-[11px] font-bold">
+                  <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-slate-800">R.U.C. {EMISOR.ruc}</div>
+                  <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-white bg-brand-blue uppercase tracking-tight">{activeDoc.title}</div>
+                  <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-slate-800 border-t border-slate-200">N° {activeDoc.serie}</div>
                 </div>
               </div>
 

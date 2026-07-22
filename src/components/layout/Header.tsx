@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Check, Code2 } from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
 import { useNavigation } from '../../context/NavigationContext';
@@ -50,17 +50,14 @@ export default function Header() {
             className="flex items-center gap-2.5 cursor-pointer"
             onClick={() => (isApiPage ? (window.location.href = '/') : handleNavClick('hero'))}
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-[#0f2e64] shadow-md shadow-brand-red/25 border border-white/10">
+            <div className="flex items-center justify-center w-10 h-10 rounded-md bg-[#0f2e64] shadow-md shadow-brand-red/25 border border-white/10">
               <img src={logoFactufly} alt="Factufly" className="w-6 h-6 object-contain" />
-              <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-950 flex items-center justify-center" title="SUNAT Homologado">
-                <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
-              </div>
             </div>
             <div>
               <span className="text-xl font-bold tracking-tight text-brand-dark dark:text-white flex items-center">
-                Factu<span className="text-[#a80a0a]">Fly</span><span className="text-[#de350b] font-black"></span>
+                Factu<span className="text-[#a80a0a] dark:text-[#e67b87]">Fly</span>
               </span>
-              <span className="block text-[9px] font-bold tracking-widest text-slate-800 dark:text-blue-200/70 uppercase -mt-0.5 flex items-center gap-0.5">
+              <span className="block text-[9px] font-bold tracking-widest text-slate-800 dark:text-white uppercase -mt-0.5 flex items-center gap-0.5">
                  Sistema de facturación electrónica 
               </span>
             </div>
@@ -102,19 +99,14 @@ export default function Header() {
             {/* Theme Toggle */}
             <ThemeToggle checked={darkMode} onChange={toggleDarkMode} />
 
-            <button
-              onClick={() => handleNavClick('demo-section')}
+            <a
+              href="https://factufly.ideatec.com.pe/"
+              target="_blank"
+              rel="noreferrer"
               className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-white/90 hover:text-brand-red dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-all cursor-pointer border border-slate-200/60 dark:border-white/20"
             >
-              Ver Demo
-            </button>
-
-            <button
-              onClick={() => handleNavClick('planes')}
-              className="px-5 py-2 text-sm font-bold text-white bg-brand-red hover:bg-[#0a2049] rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
-            >
-              Empieza Gratis
-            </button>
+              Ingresar al Sistema
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -168,18 +160,15 @@ export default function Header() {
             </a>
 
             <div className="pt-4 border-t border-slate-200/60 dark:border-white/10 flex flex-col gap-3 px-4">
-              <button
-                onClick={() => handleNavClick('demo-section')}
-                className="w-full py-3 text-center text-sm font-semibold text-brand-red dark:text-white bg-brand-red/10 dark:bg-white/10 rounded-xl hover:bg-brand-red/20 dark:hover:bg-white/20 transition-all"
+              <a
+                href="https://factufly.ideatec.com.pe/"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 text-center text-sm font-semibold text-brand-red dark:text-white bg-brand-red/10 dark:bg-white/10 rounded-xl hover:bg-brand-red/20 dark:hover:bg-white/20 transition-all block"
               >
-                Ver Demo Interactiva
-              </button>
-              <button
-                onClick={() => handleNavClick('planes')}
-                className="w-full py-3 text-center text-sm font-bold text-white bg-brand-red hover:bg-[#0a2049] rounded-xl shadow-md transition-all"
-              >
-                Empieza Gratis
-              </button>
+                Ingresar al Sistema
+              </a>
             </div>
           </div>
         </div>

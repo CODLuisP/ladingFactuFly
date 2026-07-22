@@ -1,6 +1,6 @@
 import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
 
-const WHATSAPP_NUMBER = '51987654321';
+const WHATSAPP_NUMBER = '51952379386';
 const DEFAULT_MESSAGE = 'Hola, quiero más información sobre FactuFly.';
 
 export default function FloatingWhatsApp() {
