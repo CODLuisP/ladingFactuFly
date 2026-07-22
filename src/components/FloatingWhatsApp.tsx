@@ -13,11 +13,12 @@ export default function FloatingWhatsApp() {
       rel="noreferrer"
       aria-label="Escríbenos por WhatsApp"
       title="Escríbenos por WhatsApp"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[60] w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-black/20 flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
+      className="fixed right-5 sm:right-6 z-[9999] w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] shadow-2xl shadow-black/30 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 touch-none select-none"
+      style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))' }}
     >
-      {/* Anillo de pulso para llamar la atención sin ser invasivo */}
-      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
-      <img src={whatsappIcon} alt="" width={28} height={28} loading="lazy" decoding="async" className="relative w-7 h-7 brightness-0 invert" />
+      {/* Anillo de pulso sutil */}
+      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-50 animate-ping pointer-events-none" />
+      <img src={whatsappIcon} alt="WhatsApp" width={28} height={28} loading="lazy" decoding="async" className="relative z-10 w-7 h-7 brightness-0 invert" />
     </a>
   );
 }
