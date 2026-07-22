@@ -14,6 +14,7 @@ import Pricing from './components/Pricing';
 import ContactSection from './components/ContactSection';
 import Footer from './components/layout/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import Reveal from './components/Reveal';
 
 // Ruta independiente: /apifactufly ya no vive dentro del scroll de la landing.
 const isApiPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === '/apifactufly';
@@ -30,15 +31,15 @@ function AppContent() {
           <Header />
           <main className="relative z-10">
             <Hero />
-            <Sponsors />
-            <DocumentTypes />
-            <Features />
-            <Modules />
-            <Personalization />
-            <Industries />
-            <Pricing />
+            <Reveal><Sponsors /></Reveal>
+            <Reveal><DocumentTypes /></Reveal>
+            <Reveal><Features /></Reveal>
+            <Reveal><Modules /></Reveal>
+            <Reveal><Personalization /></Reveal>
+            <Reveal><Industries /></Reveal>
+            <Reveal><Pricing /></Reveal>
           </main>
-          <ContactSection />
+          <Reveal><ContactSection /></Reveal>
           <Footer />
         </>
       )}

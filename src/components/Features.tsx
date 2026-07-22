@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import {
   Users, Search, Smartphone, Barcode, ArrowRightLeft,
   Hand, FileText, Printer, Percent
@@ -29,8 +30,13 @@ export default function Features() {
         {/* Bento grid de características */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-5 items-stretch">
 
-          {/* TIPO DE CAMBIO (S/ → $) */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* TIPO DE CAMBIO (S/ → $) — entra desde la izquierda */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <ArrowRightLeft className="w-5 h-5" />
@@ -40,10 +46,15 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Conectado al tipo de cambio para emitir también en dólares.
             </p>
-          </div>
+          </motion.div>
 
-          {/* ENVÍO POR EMAIL Y WHATSAPP (mockup dentro de iPhone) */}
-          <div className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col shadow-sm">
+          {/* ENVÍO POR EMAIL Y WHATSAPP (mockup dentro de iPhone) — entra desde abajo (columna del medio) */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Smartphone className="w-5 h-5" />
@@ -154,10 +165,15 @@ export default function Features() {
                 <img src={iphoneFrame} alt="" className="absolute inset-0 w-full h-full pointer-events-none select-none" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Búsqueda RENIEC / SUNAT */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* Búsqueda RENIEC / SUNAT — entra desde la derecha */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Search className="w-5 h-5" />
@@ -167,10 +183,15 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Ingresa un DNI o RUC y Factufly trae los datos validados desde RENIEC y SUNAT al instante.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Permisos y roles */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* Permisos y roles — entra desde la izquierda */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Users className="w-5 h-5" />
@@ -180,10 +201,15 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Asigna roles a vendedores, administradores y contadores para proteger tu información confidencial.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Código de barras */}
-          <div className="sm:col-span-2 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* Código de barras — entra desde la derecha */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-2 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Barcode className="w-5 h-5" />
@@ -193,10 +219,15 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Vende escaneando y mantén tu inventario siempre al día.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Ticketera térmica */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* Ticketera térmica — entra desde la izquierda */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Printer className="w-5 h-5" />
@@ -206,10 +237,15 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Imprime en formato ticket ajustado automáticamente al ancho de tu impresora térmica —58 mm o 80 mm—.
             </p>
-          </div>
+          </motion.div>
 
-          {/* IGV configurable */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
+          {/* IGV configurable — entra desde la derecha */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Percent className="w-5 h-5" />
@@ -219,7 +255,7 @@ export default function Features() {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
               Aplica 18% o 10.5% (restaurantes y hoteles, Ley MYPE) y el total se recalcula solo.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </div>

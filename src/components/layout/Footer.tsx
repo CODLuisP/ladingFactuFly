@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
-import footerBg from '../../public/footer.jpg';
+import footerBg from '../../public/footer.webp';
 import logoFactufly from '../../public/logofactuflyb.png';
 import whatsappIcon from '../../public/comprobantes/whatsapp-icon.svg';
 

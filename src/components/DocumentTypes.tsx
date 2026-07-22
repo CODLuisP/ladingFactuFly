@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import logoFactufly from '../public/logofactufly.jpeg';
 import qrComprobante from '../public/comprobantes/qr.png';
-import logoSunat from '../public/logoSUNAT.png';
+import logoSunat from '../public/logoSUNAT.webp';
 
 interface ResumenRow { label: string; val: string; }
 

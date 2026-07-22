@@ -1,20 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import {
-  FileText, Plus, Trash2, Send, MessageSquare, Check, Sparkles,
-  ArrowRight, FileSignature, ShieldAlert, CheckCircle2, TrendingUp, Users, Smartphone, Zap, Globe, FileCheck2,
-  X, Lightbulb, ArrowUp, Lock
-} from 'lucide-react';
+
 import { InvoiceItem, ClientSearchResult } from '../types';
-import bgFactufly from '../public/ligth.jpg';
-import bgFactuflyDark from '../public/ligth.jpg';
-import videofondo from '../public/videofondo.mp4';
-import videodark from '../public/dark.mp4';
-import desktopImg from '../public/luis.png';
-import fondoDark from '../public/fondodark.jpeg';
-import fondoLight from '../public/fondoligth.jpeg';
-import desktopDark from '../public/desktopdark.png';
-import desktopLight from '../public/desktopligth.png';
+
+import fondoDark from '../public/fondodark.jpg';
+import fondoLight from '../public/fondoligth.jpg';
+import desktopDark from '../public/desktopdark.webp';
+import desktopLight from '../public/desktopligth.webp';
 import sunatLogo from '../public/sunat.png';
 import { useNavigation } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
@@ -252,20 +244,35 @@ export default function Hero() {
                 </div> */}
 
                 {/* Titular */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                <motion.h1
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6"
+                >
                   Tu punto de venta y facturación electrónica,{' '}
                   <span className="italic font-serif font-normal text-white/95">ahora en un solo sistema.</span>
-                </h1>
+                </motion.h1>
 
                 {/* Subtítulo */}
-                <p className="text-[15px] font-semibold text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
+                <motion.p
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[15px] font-semibold text-slate-300 max-w-xl mx-auto leading-relaxed mb-8"
+                >
                   Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
                   <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                   <span className="font-extrabold text-white">SUNAT</span>, cero multas.
-                </p>
+                </motion.p>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex flex-col sm:flex-row items-center justify-center gap-3"
+                >
                   <button
                     onClick={() => scrollToSection('planes')}
                     className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-900/40 transition-all cursor-pointer border border-white/20"
@@ -280,7 +287,7 @@ export default function Hero() {
                   >
                     Ingresar al Sistema
                   </a>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -345,20 +352,35 @@ export default function Hero() {
               </div> */}
 
               {/* Titular */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
+              <motion.h1
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6"
+              >
                 Tu punto de venta y facturación electrónica,{' '}
                 <span className="italic font-serif font-normal text-slate-900/90">ahora en un solo sistema.</span>
-              </h1>
+              </motion.h1>
 
               {/* Subtítulo */}
-              <p className="text-[15px] font-semibold text-slate-700 max-w-xl mx-auto leading-relaxed mb-8">
+              <motion.p
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="text-[15px] font-semibold text-slate-700 max-w-xl mx-auto leading-relaxed mb-8"
+              >
                 Vende, cobra y emite boletas, facturas y guías en segundos  con control de inventario y reportes. Homologado por{' '}
                 <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                 <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
-              </p>
+              </motion.p>
 
               {/* CTA */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-3"
+              >
                 <button
                   onClick={() => scrollToSection('planes')}
                   className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] rounded-full shadow-lg shadow-blue-600/25 transition-all cursor-pointer border border-blue-700/20"
@@ -373,7 +395,7 @@ export default function Hero() {
                 >
                   Ingresar al Sistema
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
 
