@@ -153,7 +153,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
-                  <img src={whatsappIcon} alt="" className="w-5 h-5" />
+                  <img src={whatsappIcon} alt="" width={20} height={20} className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-brand-dark dark:text-white mt-3">WhatsApp</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">+51 952 379 386</p>

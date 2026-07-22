@@ -17,7 +17,7 @@ export default function FloatingWhatsApp() {
     >
       {/* Anillo de pulso para llamar la atención sin ser invasivo */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
-      <img src={whatsappIcon} alt="" className="relative w-7 h-7 brightness-0 invert" />
+      <img src={whatsappIcon} alt="" width={28} height={28} className="relative w-7 h-7 brightness-0 invert" />
     </a>
   );
 }

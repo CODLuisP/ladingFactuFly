@@ -51,7 +51,7 @@ export default function Header() {
             onClick={() => (isApiPage ? (window.location.href = '/') : handleNavClick('hero'))}
           >
             <div className="flex items-center justify-center w-10 h-10 rounded-md bg-[#0f2e64] shadow-md shadow-brand-red/25 border border-white/10">
-              <img src={logoFactufly} alt="Factufly" className="w-6 h-6 object-contain" />
+              <img src={logoFactufly} alt="Factufly" width={24} height={24} className="w-6 h-6 object-contain" />
             </div>
             <div>
               <span className="text-xl font-bold tracking-tight text-brand-dark dark:text-white flex items-center">
@@ -64,7 +64,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -95,7 +95,7 @@ export default function Header() {
           </nav>
 
           {/* Right Action Controls */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Theme Toggle */}
             <ThemeToggle checked={darkMode} onChange={toggleDarkMode} />
 
@@ -110,7 +110,7 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-3">
             {/* Theme Toggle for Mobile */}
             <ThemeToggle checked={darkMode} onChange={toggleDarkMode} />
 
@@ -126,7 +126,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/60 dark:border-white/10 animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navItems.map((item) => (
               <a

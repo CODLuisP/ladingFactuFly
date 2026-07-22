@@ -237,7 +237,7 @@ export default function DocumentTypes() {
               <div className="p-4 sm:p-6 flex justify-between items-start gap-2 sm:gap-4 flex-nowrap">
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
                   <div className="relative w-14 h-14 sm:w-18 sm:h-18 rounded-md shrink-0 shadow-md overflow-hidden">
-                    <img src={logoFactufly} alt="FactuFly" className="w-full h-full object-cover" />
+                    <img src={logoFactufly} alt="FactuFly" width={72} height={72} className="w-full h-full object-cover" />
                     {/* Capa indicando que aquí va el logo del cliente */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/45">
                       <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white text-center leading-tight">Tu Logo</span>
@@ -309,7 +309,7 @@ export default function DocumentTypes() {
 
               {/* Pie: QR + Resumen */}
               <div className="px-5 sm:px-6 py-5 mt-auto flex justify-between items-end gap-6 flex-wrap">
-                <img src={qrComprobante} alt="Código QR SUNAT" className="w-24 h-24 object-contain" />
+                <img src={qrComprobante} alt="Código QR SUNAT" width={96} height={96} className="w-24 h-24 object-contain" />
 
                 <div className="w-full sm:w-60 text-[11px]">
                   <p className="font-bold text-brand-blue mb-1">Resumen</p>

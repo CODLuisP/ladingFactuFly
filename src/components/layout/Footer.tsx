@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="relative flex items-center justify-center w-9 h-9 rounded-md bg-[#0f2e64] border border-white/10 shrink-0">
-                <img src={logoFactufly} alt="FactuFly" className="w-5 h-5 object-contain" />
+                <img src={logoFactufly} alt="FactuFly" width={20} height={20} className="w-5 h-5 object-contain" />
               </div>
               <span className="text-lg font-black text-white">FactuFly</span>
             </div>
@@ -76,7 +76,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-emerald-400 transition-colors inline-flex items-center gap-2 text-slate-300"
                 >
-                  <img src={whatsappIcon} alt="WhatsApp" className="w-3.5 h-3.5 shrink-0" />
+                  <img src={whatsappIcon} alt="WhatsApp" width={14} height={14} className="w-3.5 h-3.5 shrink-0" />
                   Soporte WhatsApp (+51 952 379 386)
                 </a>
               </li>
