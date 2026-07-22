@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Pill, Flower2, Cake, Shirt, Wrench, Store, Check, X, Sparkles, Coffee, Laptop, Dog
+  Pill, Flower2, Cake, Shirt, Wrench, Store, Check, X, Laptop, Dog
 } from 'lucide-react';
 
 const INDUSTRIES = [
@@ -10,7 +10,6 @@ const INDUSTRIES = [
   { icon: Shirt, name: 'Tiendas de Ropa' },
   { icon: Wrench, name: 'Ferreterías' },
   { icon: Store, name: 'Bodegas y Minimarkets' },
-  { icon: Coffee, name: 'Cafeterías y Restaurantes' },
   { icon: Laptop, name: 'Tecnología' },
   { icon: Dog, name: 'Veterinarias y Pet Shops' },
 ];
@@ -20,12 +19,12 @@ const COMPARISON: { feature: string; us: CellValue; others: CellValue }[] = [
   { feature: 'Punto de venta + facturación en un solo sistema', us: true, others: false },
   { feature: 'Inventario con código de barras y alertas de stock', us: true, others: false },
   { feature: 'Módulo de proveedores y compras incluido', us: true, others: false },
-  { feature: 'Búsqueda automática por DNI, RUC y CE', us: true, others: 'parcial' },
+  { feature: 'Búsqueda ilimitada por DNI, RUC y CE', us: true, others: 'parcial' },
   { feature: 'Impresión en ticketera 58mm y 80mm', us: true, others: 'parcial' },
   { feature: 'Emisión en soles y dólares con tipo de cambio', us: true, others: false },
   { feature: 'Envío automático por Email y WhatsApp', us: true, others: 'parcial' },
   { feature: 'Multisucursal sin costo adicional', us: true, others: false },
-  { feature: 'Certificado digital incluido', us: true, others: false },
+  { feature: 'Un solo monto, todo ilimitado (sin niveles ni bloqueos)', us: true, others: false },
 ];
 
 function Cell({ value }: { value: CellValue }) {
@@ -53,10 +52,7 @@ export default function Industries() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
-            <Sparkles className="w-4.5 h-4.5" /> Hecho para tu negocio
-          </h2>
-          <p className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-2">
+          <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
             Se adapta a cualquier rubro
           </p>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
@@ -92,9 +88,9 @@ export default function Industries() {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm">
+          <div className="overflow-hidden rounded-3xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm dark:bg-slate-900">
             {/* Table header */}
-            <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 sm:px-7 py-4 bg-slate-50 dark:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
+            <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 sm:px-7 py-4 bg-slate-50 dark:bg-slate-950 border-b border-slate-200/60 dark:border-slate-800/60">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-widest self-center">Característica</span>
               <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-20 text-center">Factufly</span>
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider w-20 text-center">Otros</span>
@@ -104,8 +100,8 @@ export default function Industries() {
             {COMPARISON.map((row, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-[1fr_auto_auto] gap-4 px-5 sm:px-7 py-4 items-center ${
-                  i % 2 === 1 ? 'bg-slate-50/40 dark:bg-slate-950/30' : 'bg-white dark:bg-slate-900'
+                className={`grid grid-cols-[1fr_auto_auto] gap-4 px-5 sm:px-7 py-4 items-center border-b border-slate-100 dark:border-slate-800/60 last:border-b-0 ${
+                  i % 2 === 1 ? 'bg-slate-50/40 dark:bg-slate-950/50' : 'bg-white dark:bg-slate-900'
                 }`}
               >
                 <span className="text-sm text-slate-700 dark:text-slate-200">{row.feature}</span>
@@ -123,7 +119,6 @@ export default function Industries() {
             >
               Empieza gratis hoy mismo
             </a>
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-3">Sin tarjeta de crédito · Certificado digital incluido</p>
           </div>
         </div>
 

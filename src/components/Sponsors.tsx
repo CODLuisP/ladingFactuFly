@@ -14,7 +14,7 @@ export default function Sponsors() {
 
   return (
     <section className="py-14 md:py-16 overflow-hidden bg-white dark:bg-surface-dark-1 border-y border-slate-100 dark:border-white/5 transition-colors duration-300">
-      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-10 px-6">
+      <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-10 px-6">
         Empresas que ya confían en nosotros
       </h2>
 

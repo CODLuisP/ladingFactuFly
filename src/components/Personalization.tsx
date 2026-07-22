@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Sparkles, SlidersHorizontal, LayoutDashboard, FileBarChart, Blocks,
+  LayoutDashboard, FileBarChart, Blocks,
   Gift, UserPlus, KeyRound, Building2, Rocket,
 } from 'lucide-react';
 
@@ -19,15 +19,12 @@ const ONBOARDING_STEPS = [
 
 export default function Personalization() {
   return (
-    <section id="personalizacion" className="py-20 bg-white dark:bg-surface-dark-2 transition-colors duration-300">
+    <section id="personalizacion" className="py-20 bg-white dark:bg-surface-dark-1 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Personalization block */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
-            <SlidersHorizontal className="w-4.5 h-4.5" /> Personalización total
-          </h2>
-          <p className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-2">
+          <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
             Un sistema que se adapta a ti, no al revés
           </p>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
@@ -37,8 +34,11 @@ export default function Personalization() {
           </p>
 
           {/* Zero cost badge */}
-          <div className="inline-flex items-center gap-2 mt-6 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 rounded-full px-4 py-2 text-sm font-bold border border-emerald-200/60 dark:border-emerald-800/50">
-            <Gift className="w-4.5 h-4.5" /> Sin costo adicional · Cero costos extra
+          <div className="inline-flex items-center gap-3 mt-6 bg-white dark:bg-slate-900 rounded-2xl pl-3 pr-5 py-2.5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0">
+              <Gift className="w-4 h-4" />
+            </div>
+            <span className="text-sm font-bold text-slate-900 dark:text-white">Personalización sin costo adicional</span>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function Personalization() {
             return (
               <div
                 key={item.title}
-                className="flex flex-col items-center text-center bg-brand-light dark:bg-surface-dark-1 rounded-3xl p-7 border border-slate-200/50 dark:border-slate-800/50"
+                className="flex flex-col items-center text-center bg-white dark:bg-slate-900 rounded-3xl p-7 border border-slate-200/50 dark:border-slate-800/50"
               >
                 <div className="w-13 h-13 p-3 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center mb-4 shadow-md">
                   <Icon className="w-7 h-7" />
@@ -63,8 +63,8 @@ export default function Personalization() {
         {/* Fast onboarding block */}
         <div className="mt-16 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-3xl p-8 sm:p-12 shadow-lg">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 bg-white/15 text-white rounded-full px-3 py-1 text-xs font-semibold mb-4">
-              <Sparkles className="w-4 h-4" /> Puesta en marcha exprés
+            <div className="inline-flex items-center bg-white/15 text-white rounded-full px-3 py-1 text-xs font-semibold mb-4">
+              Puesta en marcha exprés
             </div>
             <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Operativo en minutos, no en semanas

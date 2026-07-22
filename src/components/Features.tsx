@@ -18,7 +18,7 @@ export default function Features() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
             ¿Qué características tiene FactuFly?
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mt-5 text-base sm:text-lg leading-relaxed">
@@ -30,9 +30,9 @@ export default function Features() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-5 items-stretch">
 
           {/* TIPO DE CAMBIO (S/ → $) */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <ArrowRightLeft className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Tipo de cambio S/ → $</h3>
@@ -43,9 +43,9 @@ export default function Features() {
           </div>
 
           {/* ENVÍO POR EMAIL Y WHATSAPP (mockup dentro de iPhone) */}
-          <div className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 flex flex-col shadow-sm">
+          <div className="sm:col-span-2 md:col-span-2 md:row-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col shadow-sm">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Smartphone className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -157,9 +157,9 @@ export default function Features() {
           </div>
 
           {/* Búsqueda RENIEC / SUNAT */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Search className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Búsqueda RENIEC y SUNAT</h3>
@@ -170,9 +170,9 @@ export default function Features() {
           </div>
 
           {/* Permisos y roles */}
-          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Users className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Permisos y Roles de Usuario</h3>
@@ -183,9 +183,9 @@ export default function Features() {
           </div>
 
           {/* Código de barras */}
-          <div className="sm:col-span-2 md:col-span-2 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-2 md:col-span-2 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Barcode className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Código de barras</h3>
@@ -196,9 +196,9 @@ export default function Features() {
           </div>
 
           {/* Ticketera térmica */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Printer className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Adaptación a Ticketera Térmica</h3>
@@ -209,9 +209,9 @@ export default function Features() {
           </div>
 
           {/* IGV configurable */}
-          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300/70 dark:hover:border-indigo-500/40 shadow-sm flex flex-col justify-center">
+          <div className="sm:col-span-1 md:col-span-3 bg-white dark:bg-surface-dark-1 rounded-3xl p-5 sm:p-6 border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 shadow-sm flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
                 <Percent className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">IGV Configurable por Tipo de Negocio</h3>

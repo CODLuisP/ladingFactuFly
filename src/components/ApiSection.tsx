@@ -139,7 +139,7 @@ export default function ApiSection() {
             <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest flex items-center gap-1.5">
               <Code className="w-4.5 h-4.5" /> API Factufly para Desarrolladores
             </h2>
-            <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
               Integra facturación electrónica en tu propio ERP, CRM o tienda online
             </h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -171,7 +171,7 @@ export default function ApiSection() {
 
             <div className="pt-4 flex flex-wrap gap-4">
               <a
-                href="#planes"
+                href="/#planes"
                 className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-750 dark:hover:text-indigo-300"
               >
                 Ver planes de la API <ArrowRight className="w-4 h-4" />
