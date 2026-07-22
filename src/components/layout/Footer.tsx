@@ -22,7 +22,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-[#0f2e64] border border-white/10 shrink-0">
+              <div className="relative flex items-center justify-center w-9 h-9 rounded-md bg-[#0f2e64] border border-white/10 shrink-0">
                 <img src={logoFactufly} alt="FactuFly" className="w-5 h-5 object-contain" />
               </div>
               <span className="text-lg font-black text-white">FactuFly</span>

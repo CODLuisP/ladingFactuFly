@@ -351,8 +351,8 @@ export default function Hero() {
               </h1>
 
               {/* Subtítulo */}
-              <p className="text-[15px] font-semibold text-slate-900 max-w-xl mx-auto leading-relaxed mb-8">
-                Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
+              <p className="text-[15px] font-semibold text-slate-700 max-w-xl mx-auto leading-relaxed mb-8">
+                Vende, cobra y emite boletas, facturas y guías en segundos  con control de inventario y reportes. Homologado por{' '}
                 <img src={sunatLogo} alt="SUNAT" className="inline h-6 align-middle mx-0.5" />{' '}
                 <span className="font-extrabold text-blue-900">SUNAT</span>, cero multas.
               </p>
