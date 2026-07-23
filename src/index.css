@@ -40,6 +40,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset para que el scroll desde el navbar no tape el título
+   con el header fijo (~80px de alto + margen visual). */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
 /* Custom scrollbar to match our premium UI */
 ::-webkit-scrollbar {
   width: 8px;
