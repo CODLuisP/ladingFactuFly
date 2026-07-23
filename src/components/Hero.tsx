@@ -5,8 +5,10 @@ import { InvoiceItem, ClientSearchResult } from '../types';
 
 import fondoDark from '../assets/fondodark.jpg';
 import fondoDarkWebp from '../assets/fondodark.webp';
+import fondoDark640Webp from '../assets/fondodark-640.webp';
 import fondoLight from '../assets/fondoligth.jpg';
 import fondoLightWebp from '../assets/fondoligth.webp';
+import fondoLight640Webp from '../assets/fondoligth-640.webp';
 import desktopDark from '../assets/desktopdark.webp';
 import desktopDark640 from '../assets/desktopdark-640.webp';
 import desktopLight from '../assets/desktopligth.webp';
@@ -237,7 +239,7 @@ export default function Hero() {
         {/* ===== MOBILE / TABLET (< lg): flujo normal, sigue bajando si no alcanza, sin efecto de tilt ===== */}
         <div className="lg:hidden relative overflow-hidden">
           <picture className="absolute inset-0 w-full h-full pointer-events-none">
-            <source srcSet={fondoDarkWebp} type="image/webp" />
+            <source srcSet={`${fondoDark640Webp} 640w, ${fondoDarkWebp} 1440w`} sizes="100vw" type="image/webp" />
             <img src={fondoDark} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           </picture>
           <div className="absolute inset-0 bg-linear-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
@@ -313,7 +315,7 @@ export default function Hero() {
             <div className="sticky top-0 h-screen overflow-hidden">
               {/* Fondo */}
               <picture className="absolute inset-0 w-full h-full pointer-events-none">
-                <source srcSet={fondoDarkWebp} type="image/webp" />
+                <source srcSet={`${fondoDark640Webp} 640w, ${fondoDarkWebp} 1440w`} sizes="100vw" type="image/webp" />
                 <img
                   src={fondoDark}
                   alt=""
@@ -428,7 +430,7 @@ export default function Hero() {
       {/* ===== MOBILE / TABLET (< lg): flujo normal, sigue bajando si no alcanza, sin efecto de tilt ===== */}
       <div className="lg:hidden relative overflow-hidden">
         <picture className="absolute inset-0 w-full h-full pointer-events-none">
-          <source srcSet={fondoLightWebp} type="image/webp" />
+          <source srcSet={`${fondoLight640Webp} 640w, ${fondoLightWebp} 1440w`} sizes="100vw" type="image/webp" />
           <img src={fondoLight} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
         </picture>
         <div className="absolute inset-0 bg-linear-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
@@ -504,7 +506,7 @@ export default function Hero() {
           <div className="sticky top-0 h-screen overflow-hidden">
             {/* Fondo */}
             <picture className="absolute inset-0 w-full h-full pointer-events-none">
-              <source srcSet={fondoLightWebp} type="image/webp" />
+              <source srcSet={`${fondoLight640Webp} 640w, ${fondoLightWebp} 1440w`} sizes="100vw" type="image/webp" />
               <img
                 src={fondoLight}
                 alt=""
