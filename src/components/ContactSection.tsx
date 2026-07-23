@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, CheckCircle, Send } from 'lucide-react';
-import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
+import whatsappIcon from '../assets/comprobantes/whatsapp-icon.svg';
 
 // Sección de Contacto: sigue el tema claro/oscuro del sitio (no es el footer).
 export default function ContactSection() {

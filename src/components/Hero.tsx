@@ -3,16 +3,16 @@ import { motion, useScroll, useTransform } from 'motion/react';
 
 import { InvoiceItem, ClientSearchResult } from '../types';
 
-import fondoDark from '../public/fondodark.jpg';
-import fondoDarkWebp from '../public/fondodark.webp';
-import fondoLight from '../public/fondoligth.jpg';
-import fondoLightWebp from '../public/fondoligth.webp';
-import desktopDark from '../public/desktopdark.webp';
-import desktopDark640 from '../public/desktopdark-640.webp';
-import desktopLight from '../public/desktopligth.webp';
-import desktopLight640 from '../public/desktopligth-640.webp';
-import sunatLogo from '../public/sunat.png';
-import sunatLogoWebp from '../public/sunat.webp';
+import fondoDark from '../assets/fondodark.jpg';
+import fondoDarkWebp from '../assets/fondodark.webp';
+import fondoLight from '../assets/fondoligth.jpg';
+import fondoLightWebp from '../assets/fondoligth.webp';
+import desktopDark from '../assets/desktopdark.webp';
+import desktopDark640 from '../assets/desktopdark-640.webp';
+import desktopLight from '../assets/desktopligth.webp';
+import desktopLight640 from '../assets/desktopligth-640.webp';
+import sunatLogo from '../assets/sunat.png';
+import sunatLogoWebp from '../assets/sunat.webp';
 import { useNavigation } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
 

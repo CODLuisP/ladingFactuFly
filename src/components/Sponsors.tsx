@@ -1,10 +1,10 @@
-import sponsor01 from '../public/sponsors/sponsor01.webp';
-import sponsor02 from '../public/sponsors/sponsor02.webp';
-import sponsor03 from '../public/sponsors/sponsor03.webp';
-import sponsor04 from '../public/sponsors/sponsor04.webp';
-import sponsor05 from '../public/sponsors/sponsor05.webp';
-import sponsor06 from '../public/sponsors/sponsor06.webp';
-import sponsor07 from '../public/sponsors/sponsor07.webp';
+import sponsor01 from '../assets/sponsors/sponsor01.webp';
+import sponsor02 from '../assets/sponsors/sponsor02.webp';
+import sponsor03 from '../assets/sponsors/sponsor03.webp';
+import sponsor04 from '../assets/sponsors/sponsor04.webp';
+import sponsor05 from '../assets/sponsors/sponsor05.webp';
+import sponsor06 from '../assets/sponsors/sponsor06.webp';
+import sponsor07 from '../assets/sponsors/sponsor07.webp';
 import LazyImage from './common/LazyImage';
 
 const SPONSORS = [sponsor01, sponsor02, sponsor03, sponsor04, sponsor05, sponsor06, sponsor07];

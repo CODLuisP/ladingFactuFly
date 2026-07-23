@@ -3,7 +3,7 @@ import {
   Boxes, ShoppingCart, Package, Truck, Users, BarChart3, Settings2, Building2,
   Camera, ScanLine, PackageCheck, BellRing, ArrowRight
 } from 'lucide-react';
-import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
+import whatsappIcon from '../assets/comprobantes/whatsapp-icon.svg';
 
 interface ModuleItem {
   icon: React.ElementType;

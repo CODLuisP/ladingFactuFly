@@ -3,8 +3,8 @@ import { Menu, X, Code2 } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
 import { useNavigation } from '../../context/NavigationContext';
-import logoFactufly from '../../public/logofactuflyb.png';
-import logoFactuflyWebp from '../../public/logofactuflyb.webp';
+import logoFactufly from '../../assets/logofactuflyb.png';
+import logoFactuflyWebp from '../../assets/logofactuflyb.webp';
 
 // La página de la API vive en su propia ruta, fuera del scroll de la landing.
 const isApiPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === '/apifactufly';

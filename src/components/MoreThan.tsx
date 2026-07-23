@@ -1,9 +1,9 @@
 import React from 'react';
 import { FileText, Package, ShoppingCart, Shield, Zap, Building2 } from 'lucide-react';
 
-import imgFacturacion from '../public/cards/facturacion.jpeg';
-import imgStock from '../public/cards/stock.jpg';
-import imgPOS from '../public/cards/puntoventa.jpeg';
+import imgFacturacion from '../assets/cards/facturacion.jpeg';
+import imgStock from '../assets/cards/stock.jpg';
+import imgPOS from '../assets/cards/puntoventa.jpeg';
 
 export default function MoreThan() {
   return (

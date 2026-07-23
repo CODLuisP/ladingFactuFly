@@ -1,10 +1,10 @@
 import React from 'react';
 import { Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
-import footerBg from '../../public/footer.webp';
-import logoFactufly from '../../public/logofactuflyb.png';
-import logoFactuflyWebp from '../../public/logofactuflyb.webp';
-import whatsappIcon from '../../public/comprobantes/whatsapp-icon.svg';
+import footerBg from '../../assets/footer.webp';
+import logoFactufly from '../../assets/logofactuflyb.png';
+import logoFactuflyWebp from '../../assets/logofactuflyb.webp';
+import whatsappIcon from '../../assets/comprobantes/whatsapp-icon.svg';
 
 // Footer real: sección aparte, siempre oscura, con imagen de fondo.
 export default function Footer() {

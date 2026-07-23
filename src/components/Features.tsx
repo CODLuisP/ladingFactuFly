@@ -4,12 +4,12 @@ import {
   Users, Search, Smartphone, Barcode, ArrowRightLeft,
   Hand, FileText, Printer, Percent
 } from 'lucide-react';
-import whatsappIcon from '../public/comprobantes/whatsapp-icon.svg';
-import gmailIcon from '../public/comprobantes/gmail.svg';
-import iphoneFrame from '../public/comprobantes/iphone.png';
-import iphoneFrameWebp from '../public/comprobantes/iphone.webp';
-import logoFactufly from '../public/logofactufly.jpeg';
-import logoFactuflyWebp from '../public/logofactufly.webp';
+import whatsappIcon from '../assets/comprobantes/whatsapp-icon.svg';
+import gmailIcon from '../assets/comprobantes/gmail.svg';
+import iphoneFrame from '../assets/comprobantes/iphone.png';
+import iphoneFrameWebp from '../assets/comprobantes/iphone.webp';
+import logoFactufly from '../assets/logofactufly.jpeg';
+import logoFactuflyWebp from '../assets/logofactufly.webp';
 import LazyImage from './common/LazyImage';
 
 export default function Features() {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LazyImage from './common/LazyImage';
-import logoFactufly from '../public/logofactufly.jpeg';
-import logoFactuflyWebp from '../public/logofactufly.webp';
-import qrComprobante from '../public/comprobantes/qr.png';
-import qrComprobanteWebp from '../public/comprobantes/qr.webp';
-import logoSunat from '../public/logoSUNAT.webp';
+import logoFactufly from '../assets/logofactufly.jpeg';
+import logoFactuflyWebp from '../assets/logofactufly.webp';
+import qrComprobante from '../assets/comprobantes/qr.png';
+import qrComprobanteWebp from '../assets/comprobantes/qr.webp';
+import logoSunat from '../assets/logoSUNAT.webp';
 
 interface ResumenRow { label: string; val: string; }
 

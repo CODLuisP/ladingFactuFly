@@ -34,7 +34,7 @@ function AppContent() {
       ) : (
         <>
           <Header />
-          <main className="relative z-10">
+          <main className="relative z-10 overflow-x-clip">
             <Hero />
             <Suspense fallback={null}><Reveal><Sponsors /></Reveal></Suspense>
             <Suspense fallback={null}><Reveal><DocumentTypes /></Reveal></Suspense>
@@ -45,7 +45,7 @@ function AppContent() {
             <Suspense fallback={null}><Reveal><Pricing /></Reveal></Suspense>
           </main>
           <Suspense fallback={null}><Reveal><ContactSection /></Reveal></Suspense>
-          <Suspense fallback={null}><Reveal minHeight="200px"><Footer /></Reveal></Suspense>
+          <Suspense fallback={null}><Reveal><Footer /></Reveal></Suspense>
         </>
       )}
       <FloatingWhatsApp />
