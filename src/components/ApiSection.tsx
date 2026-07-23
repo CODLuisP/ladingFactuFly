@@ -137,13 +137,13 @@ export default function ApiSection() {
           {/* API Info Left Column */}
           <div className="lg:col-span-5 space-y-6">
             <h2 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest flex items-center gap-1.5">
-              <Code className="w-4.5 h-4.5" /> API Factufly para Desarrolladores
+              <Code className="w-4.5 h-4.5" /> API FactuFly para Desarrolladores
             </h2>
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
               Integra facturación electrónica en tu propio ERP, CRM o tienda online
             </h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-              ¿Tienes tu propio software y solo necesitas la conexión con SUNAT? La API RESTful de Factufly fue diseñada por desarrolladores para desarrolladores. Integra boletas, facturas y guías de remisión en menos de una mañana mediante simples peticiones HTTPS.
+              ¿Tienes tu propio software y solo necesitas la conexión con SUNAT? La API RESTful de FactuFly fue diseñada por desarrolladores para desarrolladores. Integra boletas, facturas y guías de remisión en menos de una mañana mediante simples peticiones HTTPS.
             </p>
 
             {/* List of features */}

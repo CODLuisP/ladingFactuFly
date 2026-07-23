@@ -88,10 +88,10 @@ export default function Modules() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-2">
-            ¿Factufly es solo un sistema de facturación electrónica?
+            ¿FactuFly es solo un sistema de facturación electrónica?
           </p>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
-            No. Factufly es mucho más: es un <span className="font-semibold text-slate-900 dark:text-white">punto de venta completo</span> que,
+            No. FactuFly es mucho más: es un <span className="font-semibold text-slate-900 dark:text-white">punto de venta completo</span> que,
             además de la facturación electrónica, integra inventario, compras, clientes, reportes y caja
             en los módulos que verás a continuación. Olvídate de pagar por varios programas separados.
           </p>
@@ -170,7 +170,7 @@ export default function Modules() {
                 Configura un stock mínimo y entérate por WhatsApp
               </h4>
               <p className="text-indigo-100 mt-3 text-sm leading-relaxed">
-                Cuando un producto llega a su stock mínimo, Factufly te avisa por WhatsApp para que
+                Cuando un producto llega a su stock mínimo, FactuFly te avisa por WhatsApp para que
                 repongas a tiempo. Y en cuanto vuelves a cargar stock, recibes otra alerta de que el
                 producto ya está disponible.
               </p>
@@ -189,7 +189,7 @@ export default function Modules() {
               <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-4">
                 <div className="flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
                   <img src={whatsappIcon} alt="" width={24} height={24} loading="lazy" decoding="async" className="w-6 h-6" />
-                  <span className="font-bold text-sm text-slate-900 dark:text-white">Factufly</span>
+                  <span className="font-bold text-sm text-slate-900 dark:text-white">FactuFly</span>
                   <span className="ml-auto text-[11px] text-slate-400">ahora</span>
                 </div>
                 <div className="mt-3 space-y-2.5">

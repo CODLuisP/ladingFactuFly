@@ -54,7 +54,7 @@ export default function Header() {
             <div className="flex items-center justify-center w-10 h-10 rounded-md bg-[#0f2e64] shadow-md shadow-brand-red/25 border border-white/10">
               <picture>
                 <source srcSet={logoFactuflyWebp} type="image/webp" />
-                <img src={logoFactufly} alt="Factufly" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain" />
+                <img src={logoFactufly} alt="FactuFly" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain" />
               </picture>
             </div>
             <div>

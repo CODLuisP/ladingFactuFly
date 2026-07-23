@@ -190,7 +190,7 @@ export default function Features() {
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">Búsqueda RENIEC y SUNAT</h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
-              Ingresa un DNI o RUC y Factufly trae los datos validados desde RENIEC y SUNAT al instante.
+              Ingresa un DNI o RUC y FactuFly trae los datos validados desde RENIEC y SUNAT al instante.
             </p>
           </motion.div>
 

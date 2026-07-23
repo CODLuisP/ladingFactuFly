@@ -21,7 +21,7 @@ const SIMULATED_CLIENTS: ClientSearchResult[] = [
   { documentNumber: '10203040', type: 'DNI', name: 'CASTRO ALVAREZ, SOPHIA' },
   { documentNumber: '44556677', type: 'DNI', name: 'MENDOZA RUIZ, CARLOS' },
   { documentNumber: '20100100101', type: 'RUC', name: 'SUNAT PERÚ S.A.', address: 'Av. Garcilaso de la Vega 1472, Lima', status: 'ACTIVO', ubigeo: 'LIMA - LIMA - LIMA' },
-  { documentNumber: '20554433221', type: 'RUC', name: 'INVERSIONES TECNOLÓGICAS FACTUFLY S.A.C.', address: 'Jr. de la Unión 321, Lima', status: 'ACTIVO', ubigeo: 'LIMA - LIMA - LIMA' },
+  { documentNumber: '20554433221', type: 'RUC', name: 'INVERSIONES TECNOLÓGICAS FactuFly S.A.C.', address: 'Jr. de la Unión 321, Lima', status: 'ACTIVO', ubigeo: 'LIMA - LIMA - LIMA' },
   { documentNumber: '20601234567', type: 'RUC', name: 'ALIMENTOS Y BEBIDAS DEL SUR E.I.R.L.', address: 'Av. El Sol 450, Cusco', status: 'ACTIVO', ubigeo: 'CUSCO - CUSCO - CUSCO' },
 ];
 
@@ -60,7 +60,7 @@ export default function Hero() {
   const [selectedClient, setSelectedClient] = useState<ClientSearchResult | null>({
     documentNumber: '20554433221',
     type: 'RUC',
-    name: 'INVERSIONES TECNOLÓGICAS FACTUFLY S.A.C.',
+    name: 'INVERSIONES TECNOLÓGICAS FactuFly S.A.C.',
     address: 'Jr. de la Unión 321, Lima',
     status: 'ACTIVO'
   });
@@ -68,7 +68,7 @@ export default function Hero() {
   
   // Invoice items
   const [items, setItems] = useState<InvoiceItem[]>([
-    { id: '1', description: 'Licencia Factufly ERP - Suscripción Anual', quantity: 1, unitPrice: 450 },
+    { id: '1', description: 'Licencia FactuFly ERP - Suscripción Anual', quantity: 1, unitPrice: 450 },
     { id: '2', description: 'Consultoría e Implementación SUNAT', quantity: 1, unitPrice: 150 },
   ]);
 

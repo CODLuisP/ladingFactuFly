@@ -56,7 +56,7 @@ export default function Industries() {
             Se adapta a cualquier rubro
           </p>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
-            Sea cual sea tu giro, Factufly se configura a la medida de tu operación. Estos son solo algunos de los
+            Sea cual sea tu giro, FactuFly se configura a la medida de tu operación. Estos son solo algunos de los
             negocios que ya facturan más rápido con nosotros.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function Industries() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-              ¿Por qué elegir Factufly?
+              ¿Por qué elegir FactuFly?
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mt-3 text-sm">
               Compara lo que obtienes con nosotros frente a un sistema de facturación tradicional.
@@ -92,7 +92,7 @@ export default function Industries() {
             {/* Table header */}
             <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 sm:px-7 py-4 bg-slate-50 dark:bg-slate-950 border-b border-slate-200/60 dark:border-slate-800/60">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-widest self-center">Característica</span>
-              <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-20 text-center">Factufly</span>
+              <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider w-20 text-center">FactuFly</span>
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider w-20 text-center">Otros</span>
             </div>
 

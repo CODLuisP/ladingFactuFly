@@ -31,8 +31,8 @@ interface DocTypeItem {
 }
 
 const EMISOR = {
-  nombre: 'FACTUFLY DEMOSTRACIÓN S.A.C.',
-  razon: 'FACTUFLY DEMOSTRACIÓN SOCIEDAD ANÓNIMA CERRADA',
+  nombre: 'FactuFly DEMOSTRACIÓN S.A.C.',
+  razon: 'FactuFly DEMOSTRACIÓN SOCIEDAD ANÓNIMA CERRADA',
   direccion: 'AV. PETIT THOUARS 1775, INT. 501, LINCE, LIMA — PERÚ',
   contacto: 'Telf/WhatsApp: 952379386  |  Email: info@ideatec.com.pe',
   ruc: '20601841038',
@@ -182,7 +182,7 @@ export default function DocumentTypes() {
             ¿Qué documentos puedes emitir ante SUNAT?
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mt-5 text-base sm:text-lg leading-relaxed">
-            Facturas, boletas, notas de crédito y débito, y guías de remisión — todos homologados, con firma digital instantánea y envío directo a los servidores de SUNAT.
+            Facturas, boletas, notas de crédito y débito, y guías de remisión; todos homologados con firma digital instantánea y envío directo a los servidores de SUNAT.
           </p>
         </div>
 
