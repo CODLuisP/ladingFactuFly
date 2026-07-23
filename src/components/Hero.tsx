@@ -220,7 +220,7 @@ export default function Hero() {
   );
   const heroSubtitle = (label: 'dark' | 'light') => (
     <>
-      Vende, cobra y emite boletas, facturas y guías en segundos — con control de inventario y reportes. Homologado por{' '}
+      Vende, cobra y emite boletas, facturas y guías en segundos con control de inventario y reportes. Homologado por{' '}
       <picture className="inline align-middle mx-0.5">
         <source srcSet={sunatLogoWebp} type="image/webp" />
         <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-5 sm:h-6 w-auto align-middle" />

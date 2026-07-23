@@ -228,8 +228,8 @@ export default function DocumentTypes() {
 
           {/* Right: vista previa realista del comprobante (papel blanco tipo PDF) */}
           <div className="lg:col-span-7 flex relative">
-            {/* Sello SUNAT: superpuesto en la esquina superior derecha */}
-            <picture className="absolute -top-9 -right-10 sm:-top-8 sm:-right-5 w-15 sm:w-15 drop-shadow-lg z-10 pointer-events-none select-none">
+            {/* Sello SUNAT: superpuesto en la esquina superior derecha en escritorio/tablet */}
+            <picture className="hidden sm:block absolute -top-8 -right-5 w-15 drop-shadow-lg z-10 pointer-events-none select-none">
               <img
                 src={logoSunat}
                 alt="100% Integrado con SUNAT"
@@ -237,7 +237,7 @@ export default function DocumentTypes() {
                 height={73}
                 loading="lazy"
                 decoding="async"
-                className="w-15 sm:w-15 h-auto object-contain drop-shadow-lg"
+                className="w-15 h-auto object-contain drop-shadow-lg"
               />
             </picture>
             <div className="w-full bg-white text-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden flex flex-col">
