@@ -199,7 +199,7 @@ export default function DocumentTypes() {
                   onClick={() => setSelectedDocId(doc.id)}
                   className={`w-full text-left p-4.5 rounded-2xl border transition-all flex items-start gap-4 cursor-pointer relative overflow-hidden group ${
                     isActive
-                      ? 'bg-gradient-to-br from-indigo-600 to-blue-700 border-transparent shadow-lg shadow-indigo-500/25 -translate-y-0.5'
+                      ? 'bg-linear-to-br from-indigo-600 to-blue-700 border-transparent shadow-lg shadow-indigo-500/25 -translate-y-0.5'
                       : 'bg-brand-light dark:bg-slate-900 border-slate-200/60 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5 hover:shadow-md'
                   }`}
                 >
@@ -265,7 +265,7 @@ export default function DocumentTypes() {
                   </div>
                 </div>
 
-                <div className="shrink-0 border-2 border-brand-blue rounded-md text-center min-w-[150px] sm:min-w-[180px] max-w-[200px] overflow-hidden text-[9.5px] sm:text-[11px] font-bold">
+                <div className="shrink-0 border-2 border-brand-blue rounded-md text-center min-w-37.5 sm:min-w-45 max-w-50 overflow-hidden text-[9.5px] sm:text-[11px] font-bold">
                   <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-slate-800">R.U.C. {EMISOR.ruc}</div>
                   <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-white bg-brand-blue uppercase tracking-tight">{activeDoc.title}</div>
                   <div className="px-2 py-1 sm:px-3 sm:py-1.5 text-slate-800 border-t border-slate-200">N° {activeDoc.serie}</div>
@@ -288,7 +288,7 @@ export default function DocumentTypes() {
 
               {/* Tabla de ítems */}
               <div className="px-5 sm:px-6 mt-4 overflow-x-auto">
-                <table className="w-full text-[11px] min-w-[480px]">
+                <table className="w-full text-[11px] min-w-120">
                   <thead>
                     <tr className="bg-brand-blue text-white text-left">
                       <th className="py-1.5 px-2 font-bold first:rounded-l-md">Item</th>

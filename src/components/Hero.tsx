@@ -240,7 +240,7 @@ export default function Hero() {
             <source srcSet={fondoDarkWebp} type="image/webp" />
             <img src={fondoDark} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
 
           <div className="relative z-10 px-5 pt-24 pb-10 text-center">
             <motion.h1
@@ -326,8 +326,8 @@ export default function Hero() {
                 />
               </picture>
               {/* Viñeta para fundir el fondo con la sección */}
-              <div className="absolute inset-0 bg-gradient-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-b from-surface-dark-1/70 via-transparent to-surface-dark-1 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-r from-surface-dark-1 via-transparent to-surface-dark-1 pointer-events-none" />
 
               {/* Texto (fijo, centrado) */}
               <div className="relative z-10 h-full flex flex-col items-center justify-center">
@@ -431,7 +431,7 @@ export default function Hero() {
           <source srcSet={fondoLightWebp} type="image/webp" />
           <img src={fondoLight} alt="" width={1920} height={1080} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
 
         <div className="relative z-10 px-5 pt-24 pb-10 text-center">
           <motion.h1
@@ -517,8 +517,8 @@ export default function Hero() {
               />
             </picture>
             {/* Viñeta para fundir el fondo con la sección */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-b from-[#eef3fc]/70 via-transparent to-[#eef3fc] pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-r from-[#eef3fc] via-transparent to-[#eef3fc] pointer-events-none" />
 
             {/* Texto (fijo, centrado) */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center">
