@@ -218,16 +218,16 @@ export default function Hero() {
 
   // Textos/CTA compartidos entre mobile y desktop (evita duplicar el contenido, solo cambia el tamaño/layout)
   const heroTitle = (
-    <>Tu punto de venta y facturación electrónica,{' '}<span className="italic font-serif font-normal opacity-95">ahora en un solo sistema.</span></>
+    <>Tu punto de venta (POS) y facturación electrónica,{' '}<span className="italic font-serif font-normal opacity-95">ahora en un solo sistema para Perú.</span></>
   );
   const heroSubtitle = (label: 'dark' | 'light') => (
     <>
-      Vende, cobra y emite boletas, facturas y guías en segundos con control de inventario y reportes. Homologado por{' '}
+      Vende, cobra y emite boletas y facturas electrónicas en segundos con control de inventarios y reportes. Homologado oficialmente por{' '}
       <picture className="inline align-middle mx-0.5">
         <source srcSet={sunatLogoWebp} type="image/webp" />
-        <img src={sunatLogo} alt="SUNAT" width={24} height={24} loading="eager" decoding="async" className="inline h-5 sm:h-6 w-auto align-middle" />
+        <img src={sunatLogo} alt="SUNAT Perú" width={24} height={24} loading="eager" decoding="async" className="inline h-5 sm:h-6 w-auto align-middle" />
       </picture>{' '}
-      <span className={`font-extrabold ${label === 'dark' ? 'text-white' : 'text-blue-900'}`}>SUNAT</span>, cero multas.
+      <span className={`font-extrabold ${label === 'dark' ? 'text-white' : 'text-blue-900'}`}>SUNAT</span> en Perú, cero multas.
     </>
   );
 

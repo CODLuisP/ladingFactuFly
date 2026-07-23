@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://facturacion.ideatec.com.pe/sitemap.xml

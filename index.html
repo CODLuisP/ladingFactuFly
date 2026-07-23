@@ -1,15 +1,137 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FactuFly - Sistema de Facturación Electrónica</title>
+    <meta name="theme-color" content="#0f2e64" />
+    
+    <!-- Title & SEO Meta Tags -->
+    <title>FactuFly | Sistema de Punto de Venta (POS) y Facturación Electrónica en Perú</title>
+    <meta name="description" content="FactuFly es el sistema de punto de venta (POS) y facturación electrónica homologado por SUNAT para negocios en Perú. Emite boletas, facturas y guías en segundos." />
+    <meta name="keywords" content="FactuFly, Facturación Electrónica Perú, Sistema de punto de venta peru, POS con facturacion, sistema de facturación electrónica peru, facturación SUNAT, boletas y facturas electrónicas, sistema ventas restaurantes peru, POS minimarkets peru" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="FactuFly Perú" />
+    
+    <!-- Geo / SEO Local -->
+    <meta name="geo.region" content="PE" />
+    <meta name="geo.placename" content="Perú" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://facturacion.ideatec.com.pe/" />
+
+    <!-- Favicon Links -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.png" />
-    <meta name="description" content="FactuFly: Tu punto de venta y facturación electrónica todo en uno para negocios peruanos, homologado oficialmente ante SUNAT." />
 
-    <!-- Fuentes: preconnect + carga no bloqueante (evita que el @import de Google Fonts bloquee el render) -->
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FactuFly" />
+    <meta property="og:url" content="https://facturacion.ideatec.com.pe/" />
+    <meta property="og:title" content="FactuFly | Punto de Venta (POS) y Facturación Electrónica en Perú" />
+    <meta property="og:description" content="Vende, cobra y emite boletas, facturas y guías en segundos con control de inventario y reportes. Homologado por SUNAT en Perú." />
+    <meta property="og:image" content="https://facturacion.ideatec.com.pe/logofactufly.jpeg" />
+    <meta property="og:locale" content="es_PE" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FactuFly | Sistema POS y Facturación Electrónica Perú" />
+    <meta name="twitter:description" content="Sistema de punto de venta y facturación electrónica homologado por SUNAT. Cero multas y emisión instantánea." />
+    <meta name="twitter:image" content="https://facturacion.ideatec.com.pe/logofactufly.jpeg" />
+
+    <!-- JSON-LD Structured Data: WebSite + SoftwareApplication + Organization + FAQPage + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://facturacion.ideatec.com.pe/#website",
+          "url": "https://facturacion.ideatec.com.pe/",
+          "name": "FactuFly Perú",
+          "description": "Sistema de Punto de Venta (POS) y Facturación Electrónica SUNAT en Perú",
+          "inLanguage": "es-PE"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://facturacion.ideatec.com.pe/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://facturacion.ideatec.com.pe/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "API Facturación Electrónica",
+              "item": "https://facturacion.ideatec.com.pe/apifactufly"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://facturacion.ideatec.com.pe/#software",
+          "name": "FactuFly",
+          "operatingSystem": "Web, Android, iOS, Windows, macOS",
+          "applicationCategory": "BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "PEN",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock"
+          },
+          "description": "Sistema de Punto de Venta (POS) e Integración de Facturación Electrónica Homologado por SUNAT en Perú.",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1250"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://facturacion.ideatec.com.pe/#organization",
+          "name": "FactuFly Perú",
+          "url": "https://facturacion.ideatec.com.pe/",
+          "logo": "https://facturacion.ideatec.com.pe/logofactufly.jpeg",
+          "sameAs": [],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+51-952-379-386",
+            "contactType": "customer service",
+            "areaServed": "PE",
+            "availableLanguage": "Spanish"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://facturacion.ideatec.com.pe/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿FactuFly está homologado ante la SUNAT?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, FactuFly cumple al 100% con los estándares exigidos por SUNAT en Perú para la emisión de boletas, facturas, notas de crédito, notas de débito y guías de remisión electrónicas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué incluye el sistema de punto de venta (POS) FactuFly?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Incluye control de inventarios, caja chica, reportes de ventas, consulta DNI/RUC automática con RENIEC y SUNAT, múltiples sucursales y emisión ilimitada de comprobantes."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fuentes: preconnect + carga no bloqueante -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,4 +152,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

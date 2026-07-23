@@ -52,12 +52,11 @@ export default function Industries() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Se adapta a cualquier rubro
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Sistema de punto de venta (POS) adaptado a cualquier rubro en Perú
+          </h2>
           <p className="text-slate-600 dark:text-slate-400 mt-4 text-base leading-relaxed">
-            Sea cual sea tu giro, FactuFly se configura a la medida de tu operación. Estos son solo algunos de los
-            negocios que ya facturan más rápido con nosotros.
+            Sea cual sea tu giro comercial, FactuFly se configura a la medida de tu operación. Estos son algunos de los negocios (restaurantes, bodegas, minimarkets, ferreterías, tiendas) que facturan con nosotros.
           </p>
         </div>
 

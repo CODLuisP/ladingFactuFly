@@ -179,10 +179,10 @@ export default function DocumentTypes() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
-            ¿Qué documentos puedes emitir ante SUNAT?
+            ¿Qué comprobantes de facturación electrónica puedes emitir ante SUNAT?
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mt-5 text-base sm:text-lg leading-relaxed">
-            Facturas, boletas, notas de crédito y débito, y guías de remisión; todos homologados con firma digital instantánea y envío directo a los servidores de SUNAT.
+            Facturas electrónicas, boletas de venta, notas de crédito, notas de débito y guías de remisión remitente (GRE); todos homologados oficialmente con firma digital e integración instantánea con SUNAT en Perú.
           </p>
         </div>
 
